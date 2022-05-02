@@ -1,53 +1,44 @@
-import os
-import boto3
 from chalice import Chalice
-from chalicelib import db
+import pymysql
+import logging
+import json
 
-app = Chalice(app_name='mytodo')
-app.debug = True
-_DB = None
+app = Chalice(app_name='test')
+db_name = 'sys'
+db_user = 'root'
+db_pass = 'adminadmin'
+rds_host = 'db-yummy.c13ygo7twrsm.eu-west-3.rds.amazonaws.com'
+db_port = 3306
 
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
 
-def get_app_db():
-    global _DB
-    if _DB is None:
-        _DB = db.DynamoDBTodo(
-            boto3.resource('dynamodb').Table(
-                os.environ['APP_TABLE_NAME'])
-        )
-    return _DB
+try:
+    conn = pymysql.connect(host=rds_host, user=db_user, passwd=db_pass, db=db_name, connect_timeout=5)
+except pymysql.MySQLError as e:
+    logger.error("ERROR: Unexpected error: Could not connect to MySQL instance.")
+    logger.error(e)
+    sys.exit()
 
-
-@app.route('/todos', methods=['GET'])
-def get_todos():
-    return get_app_db().list_items()
-
-
-@app.route('/todos', methods=['POST'])
-def add_new_todo():
-    body = app.current_request.json_body
-    return get_app_db().add_item(
-        description=body['description'],
-        metadata=body.get('metadata'),
-    )
+logger.info("SUCCESS: Connection to RDS MySQL instance succeeded")
 
 
-@app.route('/todos/{uid}', methods=['GET'])
-def get_todo(uid):
-    return get_app_db().get_item(uid)
+@app.route('/', methods=["GET"])
+def default():
+    return "Yummy'dvice"
 
+@app.route('/save_data', methods=["GET"])
+def save_data():
 
-@app.route('/todos/{uid}', methods=['DELETE'])
-def delete_todo(uid):
-    return get_app_db().delete_item(uid)
+        with conn.cursor() as cur:
+            cur.execute("INSERT INTO test (clef, valeur) VALUES (%s, %s)", (1,2))
+            conn.commit()
 
+@app.route('/get_data')
+def get_data():
 
-@app.route('/todos/{uid}', methods=['PUT'])
-def update_todo(uid):
-    body = app.current_request.json_body
-    get_app_db().update_item(
-        uid,
-        description=body.get('description'),
-        state=body.get('state'),
-        metadata=body.get('metadata'))
-
+        with conn.cursor() as cur:    
+            cur.execute("select * from test")
+            formulas = cur.fetchall() 
+        return json.dumps(formulas, indent=4)
+                
