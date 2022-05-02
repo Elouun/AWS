@@ -2,6 +2,7 @@ from chalice import Chalice
 import pymysql
 import logging
 import json
+import sys
 
 app = Chalice(app_name='test')
 db_name = 'sys'
@@ -14,7 +15,7 @@ logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
 try:
-    conn = pymysql.connect(host=rds_host, user=db_user, passwd=db_pass, db=db_name, connect_timeout=5)
+    conn = pymysql.connect(host=rds_host, user=db_user, passwd=db_pass, db=db_name, connect_timeout=15)
 except pymysql.MySQLError as e:
     logger.error("ERROR: Unexpected error: Could not connect to MySQL instance.")
     logger.error(e)
