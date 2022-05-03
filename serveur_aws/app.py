@@ -5,17 +5,18 @@ import json
 import sys
 
 app = Chalice(app_name='test')
-db_name = 'sys'
+
+db_host = 'db-yummy.c13ygo7twrsm.eu-west-3.rds.amazonaws.com'
 db_user = 'root'
 db_pass = 'adminadmin'
-rds_host = 'db-yummy.c13ygo7twrsm.eu-west-3.rds.amazonaws.com'
+db_name = 'sys'
 db_port = 3306
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
 try:
-    conn = pymysql.connect(host=rds_host, user=db_user, passwd=db_pass, db=db_name, connect_timeout=15)
+    conn = pymysql.connect(host=db_host, user=db_user, passwd=db_pass, db=db_name, connect_timeout=15)
 except pymysql.MySQLError as e:
     logger.error("ERROR: Unexpected error: Could not connect to MySQL instance.")
     logger.error(e)
@@ -23,7 +24,11 @@ except pymysql.MySQLError as e:
 
 logger.info("SUCCESS: Connection to RDS MySQL instance succeeded")
 
+@app.route('/')
+def index():
+    return {'hello': 'world'}
 
+"""
 @app.route('/', methods=["GET"])
 def default():
     return "Yummy'dvice"
@@ -43,3 +48,4 @@ def get_data():
             formulas = cur.fetchall() 
         return json.dumps(formulas, indent=4)
                 
+"""
