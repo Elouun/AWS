@@ -2,6 +2,7 @@ from chalice import Chalice
 import pymysql
 import logging
 import json
+import sys
 
 app = Chalice(app_name='test')
 db_name = 'sys'
