@@ -16,5 +16,5 @@ echo '{"description": "My first Todo", "metadata": {}}' | http POST localhost:80
 requete de selection par id :
 http localhost:8000/todos/XXXXXXXXXXXXXX (les x par l'uid trouvé avec l'affichage, il est généré aléatoirement)
 
-suupression :
+supression :
 http DELETE localhost:8000/todos/XXXXXXXXXXXXX
