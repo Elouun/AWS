@@ -1,44 +1,28 @@
 from chalice import Chalice
-import pymysql
+
 import logging
 import json
 import sys
+import numpy as np
+import bdd
 
-app = Chalice(app_name='test')
-db_name = 'sys'
-db_user = 'root'
-db_pass = 'adminadmin'
-rds_host = 'db-yummy.c13ygo7twrsm.eu-west-3.rds.amazonaws.com'
-db_port = 3306
 
-logger = logging.getLogger()
-logger.setLevel(logging.INFO)
+app = Chalice(app_name='Yummy\'Dmvice')
 
-try:
-    conn = pymysql.connect(host=rds_host, user=db_user, passwd=db_pass, db=db_name, connect_timeout=5)
-except pymysql.MySQLError as e:
-    logger.error("ERROR: Unexpected error: Could not connect to MySQL instance.")
-    logger.error(e)
-    sys.exit()
-
-logger.info("SUCCESS: Connection to RDS MySQL instance succeeded")
-
+#conn = bdd.connect()
 
 @app.route('/', methods=["GET"])
 def default():
-    return "Yummy'dvice"
+    return "hello"
 
 @app.route('/save_data', methods=["GET"])
 def save_data():
+    return 1
 
-        with conn.cursor() as cur:
-            cur.execute("INSERT INTO test (clef, valeur) VALUES (%s, %s)", (1,2))
-            conn.commit()
+@app.route('/get_restaurant/{name}')
+def get_restaurant(name):
 
-@app.route('/get_data')
-def get_data():
+    #res = bdd.request("select * from test", conn)
+    #print(len(res))
 
-        with conn.cursor() as cur:    
-            cur.execute("select * from test")
-            formulas = cur.fetchall() 
-        return json.dumps(formulas, indent=4)
+    return name
