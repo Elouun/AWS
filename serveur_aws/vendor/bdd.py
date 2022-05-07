@@ -1,5 +1,9 @@
 import pymysql
 
+# mysql --host=db-yummy.c13ygo7twrsm.eu-west-3.rds.amazonaws.com --user=root --password=adminadmin sys
+# source "sqlfile.sql"
+
+
 db_name = 'sys'
 db_user = 'root'
 db_pass = 'adminadmin'
