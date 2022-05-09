@@ -10,7 +10,7 @@ import reqs
 
 app = Chalice(app_name='Yummy\'Dmvice')
 
-#conn = bdd.connect()
+conn = bdd.connect()
 
 @app.route('/', methods=["GET"])
 def default():
@@ -22,30 +22,37 @@ def save_data():
 
 @app.route('/getRestaurant/{name}')
 def get_restaurant(name):
-
+    #if name.contains("%20") :
+    #    name.replace("%20", " ")
     req = reqs.restaurant.replace("?n", name)
-    #res = bdd.request("select * from test", conn)
-    #print(len(res))
+    res = bdd.request(req, conn)
 
-    return req
+    return res
 
-@app.route('/getRestaurant/{id}')
-def get_restaurant(id):
+#@app.route('/getRestaurant/{id}')
+#def get_restaurant(id):
 
     #req = reqs.restaurant.replace("?n", name)
     #res = bdd.request("select * from test", conn)
-    #print(len(res))
 
-    return 1
+#    return 1
 
 
 @app.route('/getUser/{name}')
 def get_user(name):
 
-    #res = bdd.request("select * from test", conn)
-    #print(len(res))
+    req = reqs.user.replace("?n", name)
+    res = bdd.request(req, conn)
 
-    return name
+    return res
+
+@app.route('/getReviewByUser/{name}')
+def get_user(name):
+
+    req = reqs.review_by_user.replace("?n", name)
+    res = bdd.request(req, conn)
+
+    return res
 
 @app.route('/getReco')
 def get_user():
