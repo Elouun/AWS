@@ -1,2 +1,3 @@
 /serveur_aws/aws/*
 /serveur_aws/awscliv2.zip
+/serveur_aws/__pycache__
