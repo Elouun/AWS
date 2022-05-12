@@ -13,3 +13,7 @@ restauetoiles = 'select * from Business where stars = "?n"'
 restauVille = 'select * from Business where city = "?n"'
 
 restaualcoholterrasse = 'select * from Business where Alcohol = 1 and OutdoorSeating = 1 and city = "?n"'
+
+verifyLoginPw = 'select count(*) as count from Users u where u.email = "?e" and u.password = "?p"'
+
+getCloserRestaurants = 'select b.business_id, b.name, ST_Distance_Sphere(point(?long, ?lat),point(b.longitude,b.latitude)) as distance from Business  b order by distance limit ?nb'

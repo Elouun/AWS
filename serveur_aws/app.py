@@ -93,6 +93,49 @@ def get_restaurantAlco(name):
 
     return res
 
+@app.route('/getCloserRestaurant')
+def getCloserRestaurant() :
+
+    request = app.current_request
+    params = request.query_params
+
+    if  params :
+
+        long = params.get('long')
+        lat = params.get('lat')
+      
+        res = bdd.request(reqs.getCloserRestaurants.replace("?long", long).replace("?lat", lat).replace("?nb", "3"), conn)
+        
+        return res[0]
+
+
+
+    return "no param"
+
+
+@app.route('/verifyUsernamePassword')
+def verifiyUsernamePassword() :
+
+    request = app.current_request
+
+    params = request.query_params
+
+    #http://127.0.0.1:8000/getReco?ouille=ouille&argh=argh
+
+    if  params :
+
+        mdp = params.get('mdp')
+        user = params.get('user')
+      
+        res = bdd.request(reqs.verifyLoginPw.replace("?e", user).replace("?p", mdp), conn)
+        
+        if res[0]["count"] == 1 :
+            return "ok"
+
+        return "not exist"
+
+    return "no param"
+
 @app.route('/getReco')
 def get_user():
 
