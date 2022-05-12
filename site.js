@@ -1,7 +1,7 @@
 const http = require("http");
 const fs = require('fs').promises;
 
-const host = 'localhost';
+const host = '192.168.1.60';
 const port = 8000;
 const axios = require('axios');
 
