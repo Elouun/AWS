@@ -22,21 +22,28 @@ def save_data():
 
 @app.route('/getRestaurant/{name}')
 def get_restaurant(name):
-    #if name.contains("%20") :
-    #    name.replace("%20", " ")
-    req = reqs.restaurant.replace("?n", name)
+
+    req = reqs.restaurant.replace("?n", test)
     res = bdd.request(req, conn)
 
     return res
 
-#@app.route('/getRestaurant/{id}')
-#def get_restaurant(id):
+@app.route('/getRestaurantid/{id}')
+def get_restaurant_id(id):
 
-    #req = reqs.restaurant.replace("?n", name)
-    #res = bdd.request("select * from test", conn)
+    req = reqs.restaurantID.replace("?n", id)
+    res = bdd.request(req, conn)
 
-#    return 1
+    return res
 
+
+@app.route('/getUserid/{id}')
+def get_user_id(id):
+
+    req = reqs.userID.replace("?n", id)
+    res = bdd.request(req, conn)
+
+    return res
 
 @app.route('/getUser/{name}')
 def get_user(name):
@@ -47,9 +54,41 @@ def get_user(name):
     return res
 
 @app.route('/getReviewByUser/{name}')
-def get_user(name):
+def get_Ruser(name):
 
     req = reqs.review_by_user.replace("?n", name)
+    res = bdd.request(req, conn)
+
+    return res
+
+@app.route('/getReviewByUserid/{id}')
+def get_Ruser_id(id):
+
+    req = reqs.review_by_user_id.replace("?n", id)
+    res = bdd.request(req, conn)
+
+    return res
+
+@app.route('/getRestaurantEtoile/{nb}')
+def get_restaurantEtoile(nb):
+
+    req = reqs.restauetoiles.replace("?n", nb)
+    res = bdd.request(req, conn)
+
+    return res
+
+@app.route('/getRestaurantVille/{name}')
+def get_restaurantVille(name):
+
+    req = reqs.restauVille.replace("?n", name)
+    res = bdd.request(req, conn)
+
+    return res
+
+@app.route('/getRestaurantAlcohol/{name}')
+def get_restaurantAlco(name):
+
+    req = reqs.restaualcoholterrasse.replace("?n",name)
     res = bdd.request(req, conn)
 
     return res
