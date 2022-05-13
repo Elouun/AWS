@@ -44,22 +44,31 @@ function commande_aws(cmd){
 const requestListener = async function (req, res) {    
 	console.log(req.url);
 
-	 switch (req.url) {
-        case "/serve":
-        	request_aws("https://www.google.fr/",res)
+	switch (req.url) {
+		case "/serve":
+			request_aws("https://www.google.fr/",res)
 
-            break
-        case "/":
-        	let result_cmd = await commande_aws("ls -la");
-        	result_cmd = result_cmd.replace(/\n/ig,"<br>");
-            res.setHeader("Content-Type", "text/html");
-    		res.writeHead(200);
-    		indexFile = indexFile.toString().replace(/%%CMD_1%%/i ,result_cmd );
-    		 console.log(indexFile);
+		    break;
+		case "/recommandation?P":
+			let param = "toto" 
+			let result_cmd = await commande_aws("python3 /home/pi/AWS/model/testModel.py " + param);
+			res.setHeader("Content-Type", "text/json");
+			res.writeHead(200);
 
-    		res.end(indexFile);
-    		break;
-	};
+			res.end(result_cmd);
+
+		    break;
+		case "/":
+			let result_cmd = await commande_aws("ls -la");
+			result_cmd = result_cmd.replace(/\n/ig,"<br>");
+			res.setHeader("Content-Type", "text/html");
+			res.writeHead(200);
+			indexFile = indexFile.toString().replace(/%%CMD_1%%/i ,result_cmd );
+			 console.log(indexFile);
+
+			res.end(indexFile);
+			break;
+		};
 
 }
 
