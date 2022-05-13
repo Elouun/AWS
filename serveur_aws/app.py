@@ -23,7 +23,7 @@ def save_data():
 @app.route('/getRestaurant/{name}')
 def get_restaurant(name):
 
-    req = reqs.restaurant.replace("?n", test)
+    req = reqs.restaurant.replace("?n", name)
     res = bdd.request(req, conn)
 
     return res
