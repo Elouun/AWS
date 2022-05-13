@@ -1,7 +1,9 @@
 const http = require("http");
 const fs = require('fs').promises;
 
-const host = '192.168.1.60';
+//const host = '192.168.1.60';
+const host = 'localhost';
+
 const port = 8000;
 const axios = require('axios');
 
@@ -17,7 +19,7 @@ function request_aws(url,res) {
   	.then(response => {
  	 	console.log(response.data);
  	 	res.writeHead(200);
-        res.end(response.data);
+        res.end(response.data.toString());
   	})
  	.catch(error => {
    		console.log(error);
@@ -41,34 +43,48 @@ function commande_aws(cmd){
 }
 
 
-const requestListener = async function (req, res) {    
-	console.log(req.url);
+const requestListener = async function (req, res) {   
+	if (req.url != "/favicon.ico"){
+		console.log(req);
 
-	switch (req.url) {
-		case "/serve":
-			request_aws("https://www.google.fr/",res)
+		console.log(req.url);
+		console.log(req.url.replace(/[?].*/gi, ''));
 
-		    break;
-		case "/recommandation?P":
-			let param = "toto" 
-			let result_cmd = await commande_aws("python3 /home/pi/AWS/model/testModel.py " + param);
-			res.setHeader("Content-Type", "text/json");
-			res.writeHead(200);
+		switch (req.url.replace(/[?].*/gi, '')) {
 
-			res.end(result_cmd);
 
-		    break;
-		case "/":
-			let result_cmd = await commande_aws("ls -la");
-			result_cmd = result_cmd.replace(/\n/ig,"<br>");
-			res.setHeader("Content-Type", "text/html");
-			res.writeHead(200);
-			indexFile = indexFile.toString().replace(/%%CMD_1%%/i ,result_cmd );
-			 console.log(indexFile);
+			case "/serve":
+				request_aws("https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getRestaurant/RESTO_NAME",res)
+			    break;
 
-			res.end(indexFile);
-			break;
+
+
+			// need to look like
+			// http://localhost:8000/recommandation?value=value_that_you_need_for_your_model
+			case "/recommandation": 
+				console.log("reco");
+				let param = req.url.split('value=')[1];
+				let result_reco = await commande_aws("python3 ./model/testModel.py " + param);
+	    		res.setHeader("Content-Type", "application/json");
+				res.writeHead(200);
+				res.end(result_reco);
+			    break;
+
+
+			case "/":
+				const cmd = "cd serveur_aws && chalice url"
+				let result_cmd = await commande_aws(cmd);
+				result_cmd = result_cmd.replace(/\n/ig,"<br>");
+				res.setHeader("Content-Type", "text/html");
+				res.writeHead(200);
+				indexFile = indexFile.toString().replace(/%%CMD_1_NAME%%/i ,cmd );
+				indexFile = indexFile.toString().replace(/%%CMD_1_RES%%/i ,result_cmd );
+				console.log(indexFile);
+
+				res.end(indexFile);
+				break;
 		};
+	}
 
 }
 
