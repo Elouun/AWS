@@ -45,6 +45,7 @@ function commande_aws(cmd){
 
 const requestListener = async function (req, res) {   
 	if (req.url != "/favicon.ico"){
+		let param = "";
 		console.log(req);
 
 		console.log(req.url);
@@ -54,7 +55,7 @@ const requestListener = async function (req, res) {
 
 
 			case "/serve":
-				let param = req.url.split('resto=')[1];
+				param = req.url.split('resto=')[1];
 				console.log(param);
 				request_aws("https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getRestaurant/Sister Honeys",res)
 			    	break;
@@ -64,7 +65,7 @@ const requestListener = async function (req, res) {
 				// http://localhost:8000/recommandation?value=value_that_you_need_for_your_model
 			case "/recommandation": 
 				console.log("reco");
-				let param = req.url.split('value=')[1];
+				param = req.url.split('value=')[1];
 				let result_reco = await commande_aws("python3 ./model/testModel.py " + param + " 2> err.log");
 		    		res.setHeader("Content-Type", "application/json");
 				res.writeHead(200);
