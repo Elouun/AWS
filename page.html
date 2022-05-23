@@ -3,7 +3,6 @@
 <head>
     <title>My Website</title>
     <style>
-        *,
         html {
             margin: 0;
             padding: 0;
@@ -44,6 +43,15 @@
         <p>Commande <b style="color: #635e4e">%%CMD_1_NAME%%</b> resultat : </p>
         <p>%%CMD_1_RES%%</p>
     </div>
+    <form action="/serve" method="get">
+        <div>
+            <label for="say">Quelle salutation voulez-vous adresser&nbsp;?</label>
+            <input name="say" id="say" value="Salut">
+        </div>
+        <div>
+            <button>Envoyer mes salutations</button>
+        </div>
+    </form>
 </body>
 
 </html>
