@@ -1,8 +1,8 @@
 const http = require("http");
 const fs = require('fs').promises;
 
-//const host = '192.168.1.60';
-const host = 'localhost';
+const host = '192.168.1.60';
+//const host = 'localhost';
 
 const port = 8000;
 const axios = require('axios');
@@ -64,7 +64,7 @@ const requestListener = async function (req, res) {
 			case "/recommandation": 
 				console.log("reco");
 				let param = req.url.split('value=')[1];
-				let result_reco = await commande_aws("python3 ./model/testModel.py " + param);
+				let result_reco = await commande_aws("python3 ./model/testModel.py " + param + " 2> err.log");
 	    		res.setHeader("Content-Type", "application/json");
 				res.writeHead(200);
 				res.end(result_reco);

@@ -10,7 +10,7 @@ users = arg[1].split('_')[1].split(',')
 items = [eval(i) for i in items]
 users = [eval(i) for i in users]
 
-interpreter = tflite.Interpreter(model_path='convertedModel_MLP.tflite')
+interpreter = tflite.Interpreter(model_path='/home/pi/AWS/model/convertedModel_MLP.tflite')
 
 interpreter.allocate_tensors()
 tensor_input = interpreter.get_input_details()
