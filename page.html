@@ -37,16 +37,24 @@
         <h1>Serveur log</h1>
         <h2>Requete serveur </h2>
         <form action="/serve" method="get">
-        <div>
-            <label for="resto">Voir un restaurant</label>
-            <input name="resto" id="resto" value="Sister Honeys">
-        </div>
-        <div>
-            <button>Recherche</button>
-        </div>
-    </form>
-        <h2>recommandation </h2>
-        <a href="/recommandation?value=value_that_you_need_for_your_model">recommandation</a>
+            <div>
+                <label for="resto">Voir un restaurant</label>
+                <input name="resto" id="resto" value="Sister Honeys">
+            </div>
+            <div>
+                <button>Recherche</button>
+            </div>
+        </form>
+        <h2>Recommandation </h2>
+        <form action="/recommandation" method="get">
+            <div>
+                <label for="reco">Voir une recommandation</label>
+                <input name="reco" id="reco" value="1,2_1,2">
+            </div>
+            <div>
+                <button>Recherche</button>
+            </div>
+        </form>        
         <h2>Commande</h2>
         <p>Commande <b style="color: #635e4e">%%CMD_1_NAME%%</b> resultat : </p>
         <p>%%CMD_1_RES%%</p>
