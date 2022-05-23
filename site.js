@@ -46,18 +46,16 @@ function commande_aws(cmd){
 const requestListener = async function (req, res) {   
 	if (req.url != "/favicon.ico"){
 		let param = "";
-		console.log(req);
-
-		console.log(req.url);
+		
 		console.log(req.url.replace(/[?].*/gi, ''));
 
 		switch (req.url.replace(/[?].*/gi, '')) {
 
 
 			case "/serve":
-				param = req.url.split('resto=')[1];
+				param = req.url.split('resto=')[1].replace(/+/gi, ' ');
 				console.log(param);
-				request_aws("https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getRestaurant/Sister Honeys",res)
+				request_aws("https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getRestaurant/" +param ,res)
 			    	break;
 
 
