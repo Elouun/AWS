@@ -18,6 +18,7 @@ function request_aws(url,res) {
 	axios.get(url)
   	.then(response => {
  	 	console.log(response.data);
+		res.setHeader("Content-Type", "application/json");
  	 	res.writeHead(200);
         	res.end(JSON.stringify(response.data));
   	})
@@ -58,14 +59,13 @@ const requestListener = async function (req, res) {
 				request_aws("https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getRestaurant/" +param ,res)
 			    	break;
 
-
-				// need to look like
-				// http://localhost:8000/recommandation?value=value_that_you_need_for_your_model
 			case "/recommandation": 
-				console.log("reco");
-				param = req.url.split('value=')[1];
+				param = req.url.split('reco=')[1];
+				console.log(param);
 				let result_reco = await commande_aws("python3 ./model/testModel.py " + param + " 2> err.log");
-		    		res.setHeader("Content-Type", "application/json");
+		    		
+				
+				res.setHeader("Content-Type", "application/json");
 				res.writeHead(200);
 				res.end(result_reco);
 				break;
