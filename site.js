@@ -54,6 +54,8 @@ const requestListener = async function (req, res) {
 
 
 			case "/serve":
+				let param = req.url.split('resto=')[1];
+				console.log(param);
 				request_aws("https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getRestaurant/Sister Honeys",res)
 			    	break;
 
