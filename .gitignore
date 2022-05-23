@@ -2,3 +2,4 @@
 /serveur_aws/awscliv2.zip
 /serveur_aws/__pycache__
 /node_modules/*
+*.log

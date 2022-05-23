@@ -19,7 +19,7 @@ function request_aws(url,res) {
   	.then(response => {
  	 	console.log(response.data);
  	 	res.writeHead(200);
-        res.end(response.data.toString());
+        	res.end(JSON.stringify(response.data));
   	})
  	.catch(error => {
    		console.log(error);
@@ -54,25 +54,24 @@ const requestListener = async function (req, res) {
 
 
 			case "/serve":
-				request_aws("https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getRestaurant/RESTO_NAME",res)
-			    break;
+				request_aws("https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getRestaurant/Sister Honeys",res)
+			    	break;
 
 
-
-			// need to look like
-			// http://localhost:8000/recommandation?value=value_that_you_need_for_your_model
+				// need to look like
+				// http://localhost:8000/recommandation?value=value_that_you_need_for_your_model
 			case "/recommandation": 
 				console.log("reco");
 				let param = req.url.split('value=')[1];
 				let result_reco = await commande_aws("python3 ./model/testModel.py " + param + " 2> err.log");
-	    		res.setHeader("Content-Type", "application/json");
+		    		res.setHeader("Content-Type", "application/json");
 				res.writeHead(200);
 				res.end(result_reco);
-			    break;
+				break;
 
 
 			case "/":
-				const cmd = "cd serveur_aws && chalice url"
+				const cmd = "cd /home/pi/AWS/serveur_aws && chalice url"
 				let result_cmd = await commande_aws(cmd);
 				result_cmd = result_cmd.replace(/\n/ig,"<br>");
 				res.setHeader("Content-Type", "text/html");
