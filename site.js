@@ -60,7 +60,7 @@ const requestListener = async function (req, res) {
 			    	break;
 
 			case "/recommandation": 
-				param = req.url.split('reco=')[1];
+				param = req.url.split('reco=')[1].replace(/%2C/gi, ',');
 				console.log(param);
 				let result_reco = await commande_aws("python3 ./model/testModel.py " + param + " 2> err.log");
 		    		
