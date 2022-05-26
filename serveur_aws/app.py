@@ -54,6 +54,20 @@ def get_categories(list):
 	    count += 1
 	return  json.dumps(d)
 
+@app.route('/getReviewsFromId/{bId}')
+def getReviewsFromId(bId):
+	
+	req = reqs.reviews_by_restaurant_id
+	
+	res = bdd.request(req, conn)
+	
+	d = {}
+	count = 0
+	for row in res:
+	    d[count] = {"name":row[0],"text":row[1],"stars":row[2]}
+	    count += 1
+	return  json.dumps(d)
+
 
 @app.route('/getRestaurantid/{id}')
 def get_restaurant_id(id):
