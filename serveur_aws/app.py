@@ -57,7 +57,7 @@ def get_categories(list):
 @app.route('/getReviewsFromId/{bId}')
 def getReviewsFromId(bId):
 	
-	req = reqs.reviews_by_restaurant_id
+	req = reqs.reviews_by_restaurant_id.replace("?id", bId)
 	
 	res = bdd.request(req, conn)
 	
