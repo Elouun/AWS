@@ -47,7 +47,12 @@ def get_categories(list):
 	reqfinal = req + add 
 	res = bdd.request(reqfinal, conn)
 	
-	return res
+	d = {}
+	
+	for row in res:
+	    d[row[0]] = {"name":row[1],"address":row[2],"city":row[3], "state":row[4],"postal_code":row[5],"latitude":row[6],"longitude":row[7],"stars":row[8]}
+	
+	return  json.dumps(d)
 
 
 @app.route('/getRestaurantid/{id}')
