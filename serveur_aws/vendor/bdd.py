@@ -24,7 +24,7 @@ def connect():
 
     return conn
 
-def requestRestaurant(sql, conn):
+def request(sql, conn):
 
     with conn.cursor() as cur:    
 
