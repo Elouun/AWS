@@ -6,6 +6,7 @@ import sys
 import numpy as np
 import bdd
 import reqs
+import re 
 
 
 app = Chalice(app_name='Yummy\'Dmvice')
@@ -14,7 +15,7 @@ conn = bdd.connect()
 
 @app.route('/', methods=["GET"])
 def default():
-    return "hello"
+    return "Yuumy D'vice"
 
 @app.route('/save_data', methods=["GET"])
 def save_data():
@@ -23,10 +24,31 @@ def save_data():
 @app.route('/getRestaurant/{name}')
 def get_restaurant(name):
 
-    req = reqs.restaurant.replace("?n", name)
-    res = bdd.request(req, conn)
+	names = re.sub("%20", " ", name)
+	req = reqs.restaurant.replace("?n", names)
+	res = bdd.request(req, conn)
 
-    return res
+	return res
+
+@app.route('/getCategories/{list}')
+def get_categories(list):
+
+	tab = list.split(',')
+	add = ""
+	cpt = 0 
+	for i in tab :
+		if cpt==0 :
+			add = " where " + i + " = 1"
+		else :
+			add = add + " and " + i + " = 1" 
+		cpt = cpt+1
+		
+	req = reqs.perso
+	reqfinal = req + add 
+	res = bdd.request(reqfinal, conn)
+
+	return res
+
 
 @app.route('/getRestaurantid/{id}')
 def get_restaurant_id(id):
