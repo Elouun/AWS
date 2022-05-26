@@ -7,6 +7,8 @@ userID = 'Selct * from Users where user_id = "?n"'
 review_by_user = 'SELECT text,stars FROM Users u,Reviews r where u.user_id = r.user_id and name="?n" limit 5'
 review_by_user_id = 'SELECT text,stars FROM Users u,Reviews r where u.user_id = r.user_id and user_id="?n" limit 5'
 
+reviews_by_restaurant_id = 'SELECT u.name, text, stars FROM Users u,Reviews r where u.user_id = r.user_id and business_id="?id" order by date desc limit 5'
+
 
 restauetoiles = 'select * from Business where stars = "?n"'
 
