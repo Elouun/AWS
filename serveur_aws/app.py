@@ -43,7 +43,7 @@ def get_categories(list):
 			add = add + " and " + i + " = 1" 
 		cpt = cpt+1
 		
-	req = reqs.perso
+	req = reqs.reduceRestaurant
 	reqfinal = req + add 
 	res = bdd.request(reqfinal, conn)
 
