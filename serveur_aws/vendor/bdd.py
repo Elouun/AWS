@@ -24,10 +24,11 @@ def connect():
 
     return conn
 
-def request(sql, conn):
+def requestRestaurant(sql, conn):
 
-    with conn.cursor(pymysql.cursors.DictCursor) as cur:    
+    with conn.cursor() as cur:    
 
         cur.execute(sql)
         res = cur.fetchall()
+                       
         return res
