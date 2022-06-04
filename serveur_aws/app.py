@@ -28,7 +28,7 @@ def get_restaurant(name):
 	req = reqs.countRestaurantNameAlmost.replace("?key", name)
 	res = bdd.request(req, conn)
 	
-	return  res
+	return  res[0][0]
 
 @app.route('/getRestaurantNameAlmost/{name}')
 def get_restaurant(name):
