@@ -27,8 +27,13 @@ def get_restaurant(name):
 	names = re.sub("%20", " ", name)
 	req = reqs.restaurant.replace("?n", names)
 	res = bdd.request(req, conn)
-
-	return res
+	
+	d = {}
+	count = 0
+	for row in res:
+	    d[count] = {"business_id":row[0],"name":row[1],"address":row[2],"city":row[3], "state":row[4],"postal_code":row[5],"latitude":row[6],"longitude":row[7],"stars":row[8]}
+	    count += 1
+	return  json.dumps(d)
 
 @app.route('/getCategories/{list}')
 def get_categories(list):
