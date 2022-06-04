@@ -25,7 +25,7 @@ def save_data():
 @app.route('/getRestaurantNameAlmost/{name}')
 def get_restaurant(name):
 
-	req = reqs.restaurantNameAlmost.replace("?n", name)
+	req = reqs.restaurantNameAlmost.replace("?key", name)
 	res = bdd.request(req, conn)
 	d = {}
 	count = 0
