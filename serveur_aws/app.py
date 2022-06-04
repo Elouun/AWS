@@ -22,7 +22,6 @@ def save_data():
     return 1
 
 
-restaurantNameAlmost
 @app.route('/getRestaurantNameAlmost/{name}')
 def get_restaurant(name):
 
