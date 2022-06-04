@@ -21,6 +21,20 @@ def default():
 def save_data():
     return 1
 
+
+restaurantNameAlmost
+@app.route('/getRestaurantNameAlmost/{name}')
+def get_restaurant(name):
+
+	req = reqs.restaurantNameAlmost.replace("?n", name)
+	res = bdd.request(req, conn)
+	d = {}
+	count = 0
+	for row in res:
+	    d[count] = {"business_id":row[0],"name":row[1],"address":row[2],"city":row[3], "state":row[4],"postal_code":row[5],"latitude":row[6],"longitude":row[7],"stars":row[8]}
+	    count += 1
+	return  json.dumps(d)
+
 @app.route('/getRestaurant/{name}')
 def get_restaurant(name):
 
