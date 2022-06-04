@@ -1,4 +1,5 @@
 restaurant = 'Select * from Business where name = "?n"'
+restaurantNameAlmost = 'select  business_id, name, address, city, state, postal_code, latitude, longitude, stars from Business where name like "%?key%"';
 restaurantID = 'Select * from Business where business_id = "?n"'
 
 user = 'select * from Users where name = "?n"'
