@@ -175,8 +175,6 @@ def getCloserRestaurant() :
         
         return res[0]
 
-
-
     return "no param"
 
 
@@ -195,13 +193,18 @@ def verifiyUsernamePassword() :
         user = params.get('user')
       
         res = bdd.request(reqs.verifyLoginPw.replace("?e", user).replace("?p", mdp), conn)
+	
+	d = {}
+	count = 0
+	for row in res:
+	    d[count] = {"user_id":row[0],"name":row[1],"review_count":row[2],"id_new":row[3]}
+	    count += 1
+	return  json.dumps(d)
         
         if res[0]["count"] == 1 :
             return "ok"
 
-        return "not exist"
-
-    return "no param"
+       return  json.dumps(d)
 
 @app.route('/getReco')
 def get_user():
