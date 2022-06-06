@@ -187,24 +187,23 @@ def verifiyUsernamePassword() :
 
     #http://127.0.0.1:8000/getReco?ouille=ouille&argh=argh
 
-    if  params :
+	if  params :
 
-        mdp = params.get('mdp')
-        user = params.get('user')
-      
-        res = bdd.request(reqs.verifyLoginPw.replace("?e", user).replace("?p", mdp), conn)
+		mdp = params.get('mdp')
+		user = params.get('user')
+
+		res = bdd.request(reqs.verifyLoginPw.replace("?e", user).replace("?p", mdp), conn)
+
+		d = {}
+		count = 0
+		for row in res:
+			d[count] = {"user_id":row[0],"name":row[1],"review_count":row[2],"id_new":row[3]}
+			count += 1
+
+		return  json.dumps(d)
 	
-	d = {}
-	count = 0
-	for row in res:
-	    d[count] = {"user_id":row[0],"name":row[1],"review_count":row[2],"id_new":row[3]}
-	    count += 1
-	return  json.dumps(d)
-        
-        if res[0]["count"] == 1 :
-            return "ok"
-
-       return  json.dumps(d)
+	return "" 
+	
 
 @app.route('/getReco')
 def get_user():
