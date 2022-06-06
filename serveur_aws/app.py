@@ -181,11 +181,11 @@ def getCloserRestaurant() :
 @app.route('/verifyUsernamePassword')
 def verifiyUsernamePassword() :
 
-    request = app.current_request
+	request = app.current_request
 
-    params = request.query_params
+	params = request.query_params
 
-    #http://127.0.0.1:8000/getReco?ouille=ouille&argh=argh
+        #http://127.0.0.1:8000/getReco?ouille=ouille&argh=argh
 
 	if  params :
 
