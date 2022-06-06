@@ -20,7 +20,7 @@ restauVille = 'select * from Business where city = "?n"'
 
 restaualcoholterrasse = 'select * from Business where Alcohol = 1 and OutdoorSeating = 1 and city = "?n"'
 
-verifyLoginPw = 'select count(*) as count from Users u where u.email = "?e" and u.password = "?p"'
+verifyLoginPw = 'select * as count from Users u where u.email = "?e" and u.password = "?p"'
 
 getCloserRestaurants = 'select b.business_id, b.name, b.address, b.city, b.state, b.postal_code, b.latitude, b.longitude, b.stars, ST_Distance_Sphere(point(?long, ?lat),point(b.longitude,b.latitude)) as distance from Business  b order by distance limit ?nb'
 
