@@ -178,31 +178,23 @@ def getCloserRestaurant() :
     return "no param"
 
 
-@app.route('/verifyUsernamePassword')
-def verifiyUsernamePassword() :
-
-	request = app.current_request
-
-	params = request.query_params
-
-        #http://127.0.0.1:8000/getReco?ouille=ouille&argh=argh
-
-	if  params :
-
-		mdp = params.get('mdp')
-		user = params.get('user')
-
-		res = bdd.request(reqs.verifyLoginPw.replace("?e", user).replace("?p", mdp), conn)
-
-		d = {}
-		count = 0
-		for row in res:
-			d[count] = {"user_id":row[0],"name":row[1],"review_count":row[2],"id_new":row[3]}
-			count += 1
-
-		return  json.dumps(d)
+@app.route('/verifyUsernamePassword/{id}')
+def verifiyUsernamePassword(id) :
 	
-	return "" 
+	ids = id.split(",")
+	
+	user = ids[0]
+	mdp = ids[1]
+
+	res = bdd.request(reqs.verifyLoginPw.replace("?e", user).replace("?p", mdp), conn)
+
+	d = {}
+	count = 0
+	for row in res:
+		d[count] = {"user_id":row[0],"name":row[1],"review_count":row[2],"id_new":row[3]}
+		count += 1
+
+	return  json.dumps(d)
 	
 
 @app.route('/getReco')
