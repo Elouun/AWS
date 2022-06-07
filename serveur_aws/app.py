@@ -163,23 +163,23 @@ def get_restaurantAlco(name):
 @app.route('/getCloserRestaurant')
 def getCloserRestaurant() :
 
-    request = app.current_request
-    params = request.query_params
+	request = app.current_request
+	params = request.query_params
 
-    d = {}	
-    if  params :
+	d = {}	
+	if  params :
 
-        long = params.get('long')
-        lat = params.get('lat')
-      
-        res = bdd.request(reqs.getCloserRestaurants.replace("?long", long).replace("?lat", lat).replace("?nb", "20"), conn)
-        
-	count = 0
-	for row in res:
-		d[count] = {"business_id":row[0],"name":row[1],"address":row[2],"city":row[3], "state":row[4],"postal_code":row[5],"latitude":row[6],"longitude":row[7],"stars":row[8]}
-		count += 1
- 
-    return json.dumps(d)
+		long = params.get('long')
+		lat = params.get('lat')
+
+		res = bdd.request(reqs.getCloserRestaurants.replace("?long", long).replace("?lat", lat).replace("?nb", "20"), conn)
+
+		count = 0
+		for row in res:
+			d[count] = {"business_id":row[0],"name":row[1],"address":row[2],"city":row[3], "state":row[4],"postal_code":row[5],"latitude":row[6],"longitude":row[7],"stars":row[8]}
+			count += 1
+
+	return json.dumps(d)
 
 
 @app.route('/verifyUsernamePassword/{id}')
