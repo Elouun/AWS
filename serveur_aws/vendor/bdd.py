@@ -32,3 +32,12 @@ def request(sql, conn):
         res = cur.fetchall()
                        
         return res
+
+def insert(sql, conn):
+    
+    with conn.cursor() as cur:    
+
+        cur.execute(sql)
+        
+                       
+    conn.commit()      
