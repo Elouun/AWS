@@ -20,7 +20,7 @@ function request_aws(url,res) {
  	 	console.log(response.data);
 		res.setHeader("Content-Type", "application/json");
  	 	res.writeHead(200);
-        	res.end(JSON.stringify(response.data));
+        res.end(JSON.stringify(response.data));
   	})
  	.catch(error => {
    		console.log(error);
@@ -72,13 +72,24 @@ const requestListener = async function (req, res) {
 
 
 			case "/":
-				const cmd = "cd /home/pi/AWS/serveur_aws && chalice url"
-				let result_cmd = await commande_aws(cmd);
-				result_cmd = result_cmd.replace(/\n/ig,"<br>");
+				const cmd_url = "cd /home/pi/AWS/serveur_aws && chalice url"
+				let result_url_cmd = await commande_aws(cmd_url);
+				result_url_cmd = result_url_cmd.replace(/\n/ig,"<br>");
+				indexFile = indexFile.toString().replace(/%%CMD_1_NAME%%/i ,"chalice url" );
+				indexFile = indexFile.toString().replace(/%%CMD_1_RES%%/i ,result_url_cmd );
+
+				const cmd_stat = "curl https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getStatistique/"
+				let result_stat_cmd = await commande_aws(cmd_url);
+				result_stat_cmd = JSON.parse(result_stat_cmd);
+				
+				indexFile = indexFile.toString().replace(/%%CMD_STAT_1_RES%%/i ,result_stat_cmd );
+				indexFile = indexFile.toString().replace(/%%CMD_STAT_2_RES%%/i ,result_stat_cmd );
+				indexFile = indexFile.toString().replace(/%%CMD_STAT_3_RES%%/i ,result_stat_cmd );
+
+
 				res.setHeader("Content-Type", "text/html");
 				res.writeHead(200);
-				indexFile = indexFile.toString().replace(/%%CMD_1_NAME%%/i ,"chalice url" );
-				indexFile = indexFile.toString().replace(/%%CMD_1_RES%%/i ,result_cmd );
+
 				console.log(indexFile);
 
 				res.end(indexFile);
