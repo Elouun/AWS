@@ -1,5 +1,5 @@
 const http = require("http");
-const fs = require('fs').promises;
+const fs = require('fs');
 
 const host = '192.168.1.60';
 //const host = 'localhost';
