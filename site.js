@@ -73,6 +73,7 @@ const requestListener = async function (req, res) {
 			case "/image": 
 				param = req.url.split('img=')[1];		    		
 				var path = "/home/pi/Pictures" + param;  
+				console.log(path);
 				res.writeHead(200, {
 				  'Content-Type' : 'image/png'
 				});
