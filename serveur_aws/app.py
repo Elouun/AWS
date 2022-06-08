@@ -203,7 +203,13 @@ def verifiyUsernamePassword(id) :
 		count += 1
 
 	return  json.dumps(d)
+
+@app.route('/addUser/{user}')
+def get_user(user):
 	
+	req = reqs.addUser.replace("?v")
+	
+	bdd.insert(reqs, conn)
 
 @app.route('/getReco')
 def get_user():
