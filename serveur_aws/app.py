@@ -165,7 +165,7 @@ def get_restaurantAlco(name):
     return res
 
 @app.route('/getStatistiques')
-def get_stats(name):
+def get_stats():
 
     req = reqs.statistiques
     res = bdd.request(req, conn)
