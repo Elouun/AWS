@@ -72,14 +72,19 @@ const requestListener = async function (req, res) {
 				break;
 
 			case "/image": 
-				param = req.url.split('img=')[1];		    		
-				var path = "/home/pi/Pictures/" + param;  
-				console.log(path);
-				res.writeHead(200, {
-				  'Content-Type' : 'image/png'
-				});
-				fs.createReadStream(path).pipe(res);
-				res.writeHead(200);
+				param = req.url.split('img=')[1];
+				if(param === undefined ){
+					res.writeHead(404);
+				}
+				else {
+					var path = "/home/pi/Pictures/" + param;  
+					console.log(path);
+					res.writeHead(200, {
+					  'Content-Type' : 'image/png'
+					});
+					fs.createReadStream(path).pipe(res);
+				}		    		
+
 
 			case "/":
 				const cmd_url = "cd /home/pi/AWS/serveur_aws && chalice url"
