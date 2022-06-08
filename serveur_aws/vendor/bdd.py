@@ -28,7 +28,9 @@ def request(sql, conn):
 
     with conn.cursor() as cur:   
 
-        cur.execute(sql)
+        #cur.execute(sql)
+        
+        cur.execute("select count(*) from Business")
         
         
         res = cur.fetchall()
