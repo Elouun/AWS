@@ -25,8 +25,6 @@ def connect():
     return conn
 
 def request(sql, conn):
-    
-    return "in requete"    
 
     with conn.cursor() as cur:    
 
