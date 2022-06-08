@@ -25,6 +25,8 @@ def connect():
     return conn
 
 def request(sql, conn):
+    
+    res = ""
 
     with conn.cursor() as cur:   
 
