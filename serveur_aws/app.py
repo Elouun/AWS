@@ -13,6 +13,8 @@ app = Chalice(app_name='Yummy\'Dmvice')
 
 conn = bdd.connect()
 
+print(conn)
+
 @app.route('/', methods=["GET"])
 def default():
     return "Yuumy D'vice test"
