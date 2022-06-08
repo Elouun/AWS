@@ -71,9 +71,7 @@ const requestListener = async function (req, res) {
 				break;
 
 			case "/image": 
-				param = req.url.split('img=')[1];
-				let result_reco = await commande_aws("python3 ./model/testModel.py " + param + " 2> err.log");
-		    		
+				param = req.url.split('img=')[1];		    		
 				var path = "/home/pi/Pictures" + param;  
 				res.writeHead(200, {
 				  'Content-Type' : 'image/png'
