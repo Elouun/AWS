@@ -1,5 +1,6 @@
 const http = require("http");
 const fs = require('fs');
+const fsp = require('fs').Promise;
 
 const host = '192.168.1.60';
 //const host = 'localhost';
@@ -110,7 +111,7 @@ const requestListener = async function (req, res) {
 
 const server = http.createServer(requestListener);
 
-fs.readFile(__dirname + "/page.html")
+fsp.readFile(__dirname + "/page.html")
     .then(contents => {
         indexFile = contents;
         server.listen(port, host, () => {
