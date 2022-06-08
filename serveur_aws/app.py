@@ -15,7 +15,7 @@ conn = bdd.connect()
 
 @app.route('/', methods=["GET"])
 def default():
-    return "Yuumy D'vice"
+    return "Yuumy D'vice test"
 
 @app.route('/save_data', methods=["GET"])
 def save_data():
