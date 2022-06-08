@@ -26,11 +26,13 @@ def connect():
 
 def request(sql, conn):
 
-    with conn.cursor() as cur:    
+    with conn.cursor() as cur:   
+        
+        return "requete3"
 
         cur.execute(sql)
         
-        return "requete3"
+        
         res = cur.fetchall()
 
     return res
