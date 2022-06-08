@@ -1,7 +1,7 @@
 restaurant = 'Select * from Business where name = "?n"'
-restaurantNameAlmost = 'select business_id, name, address, city, state, postal_code, latitude, longitude, stars from Business where name like "%?key%"';
+restaurantNameAlmost = 'select business_id, name, address, city, state, postal_code, latitude, longitude, stars from Business where name like "%?key%"'
 
-countRestaurantNameAlmost = 'select count(*) from Business where name like "%?key%"';
+countRestaurantNameAlmost = 'select count(*) from Business where name like "%?key%"'
 
 restaurantID = 'Select * from Business where business_id = "?n"'
 
