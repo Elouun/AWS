@@ -70,6 +70,16 @@ const requestListener = async function (req, res) {
 				res.end(result_reco);
 				break;
 
+			case "/image": 
+				param = req.url.split('img=')[1];
+				let result_reco = await commande_aws("python3 ./model/testModel.py " + param + " 2> err.log");
+		    		
+				var path = "/home/pi/Pictures" + param;  
+				res.writeHead(200, {
+				  'Content-Type' : 'image/png'
+				});
+				fs.createReadStream(path).pipe(res);
+				res.writeHead(200);
 
 			case "/":
 				const cmd_url = "cd /home/pi/AWS/serveur_aws && chalice url"
