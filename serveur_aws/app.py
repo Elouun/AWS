@@ -207,7 +207,7 @@ def verifiyUsernamePassword(id) :
 @app.route('/addUser/{user}')
 def get_user(user):
 	
-	req = reqs.addUser.replace("?v")
+	req = reqs.addUser.replace("?v", user)
 	
 	bdd.insert(reqs, conn)
 
