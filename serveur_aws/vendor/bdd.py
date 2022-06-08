@@ -20,7 +20,7 @@ def connect():
     
     except pymysql.MySQLError as e:
         
-        print("connexion echouee")
+        return "connexion echouee")
 
     return conn
 
@@ -30,14 +30,13 @@ def request(sql, conn):
 
         cur.execute(sql)
         res = cur.fetchall()
-                       
-        return res
+
+    return res
 
 def insert(sql, conn):
     
     with conn.cursor() as cur:    
 
         cur.execute(sql)
-        
-                       
+
     conn.commit()      
