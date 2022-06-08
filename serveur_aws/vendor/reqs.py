@@ -29,3 +29,5 @@ categories = ' select * from Business where Alcohol = 1 and NoiseLevel = 2 and R
 perso = 'select * from Business'
 
 reduceRestaurant = 'select business_id, name, address, city, state, postal_code, latitude, longitude, stars from Business'
+
+statistique = 'SELECT count(u.user_id) as nb_user , count(b.business_id) as nb_restau FROM Users u ,Business b WHERE 1'
