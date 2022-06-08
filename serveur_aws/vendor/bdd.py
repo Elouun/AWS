@@ -7,7 +7,7 @@ import pymysql
 db_name = 'sys'
 db_user = 'root'
 db_pass = 'adminadmin'
-rds_host = 'db-yummy.c13ygo7twrsm.eu-west-3.rds.amazonaws.com'
+rds_host = 'yummy.c13ygo7twrsm.eu-west-3.rds.amazonaws.com'
 db_port = 3306
 
 def connect():
@@ -32,3 +32,12 @@ def request(sql, conn):
         res = cur.fetchall()
                        
         return res
+
+def insert(sql, conn):
+    
+    with conn.cursor() as cur:    
+
+        cur.execute(sql)
+        
+                       
+    conn.commit()      
