@@ -37,7 +37,6 @@ def get_restaurant(name):
 	
 	res = bdd.request(req, conn)
 	
-	return res
 	d = {}
 	count = 0
 	for row in res:
