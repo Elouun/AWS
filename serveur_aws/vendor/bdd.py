@@ -27,8 +27,6 @@ def connect():
 def request(sql, conn):
 
     with conn.cursor() as cur:   
-        
-        return "requete3"
 
         cur.execute(sql)
         
