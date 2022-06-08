@@ -21,43 +21,80 @@
         }
 
         h1 {
-            margin-left: 3%;
             font-size: 60px;
         }
 
         p {
-            margin-left: 5%;
-            font-size: 20px;
+            margin-left: 15px;
+            font-size: 16px;
         }
     </style>
 </head>
 
 <body>
-    <div>
-        <h1>Serveur log</h1>
-        <h2>Requete serveur </h2>
-        <form action="/serve" method="get">
-            <div>
-                <label for="resto">Voir un restaurant</label>
-                <input name="resto" id="resto" value="Sister Honeys">
+    <div style="display: flex;flex-direction: row;justify-content: space-between;">
+        <div style="display: flex;flex-direction: column;margin-left: 3%">
+            <h1>Serveur log</h1>
+            <h2>Requete serveur </h2>
+            <form action="/serve" method="get">
+                <div>
+                    <label for="resto">Voir un restaurant</label>
+                    <input name="resto" id="resto" value="Sister Honeys">
+                </div>
+                <div>
+                    <button>Recherche</button>
+                </div>
+            </form>
+            <h2>Recommandation </h2>
+            <form action="/recommandation" method="get">
+                <div>
+                    <label for="reco">Voir une recommandation</label>
+                    <input name="reco" id="reco" value="1,2_1,2">
+                </div>
+                <div>
+                    <button>Recherche</button>
+                </div>
+            </form>        
+            <h2>Commande</h2>
+            <p>Commande <b style="color: #635e4e">%%CMD_1_NAME%%</b> resultat : </p>
+            <p>%%CMD_1_RES%%</p>
+        </div>
+        <div style="
+            display: flex;
+            flex-direction: column;
+            margin: 45px 45px 0% 0%">
+
+            <div style="
+                border: solid black;
+                border-width: 2px;
+                width: 550px;
+                height: 180px;
+                padding-left: 7px">
+                <h2>
+                    Statistique de l'application
+                </h2>
+                <p>Nombre de restaurant : %%CMD_STAT_1_RES%%</p>
+                <p>Nombre d'avis: %%CMD_STAT_2_RES%%</p>
+                <p>Nombre d'utilisateur: %%CMD_STAT_3_RES%%</p>
+
             </div>
-            <div>
-                <button>Recherche</button>
+            <div style="
+                border: solid black;
+                border-width: 2px;
+                margin-top: 20px;
+                width: 550px;
+                height: 180px;
+                padding-left: 7px">
+
+                <h2>
+                    Temps de traitement 
+                </h2>
+                <p>Mes informations utilisateurs : %%CMD_TPS_1_RES%%</p>
+                <p>Les catégories: %%CMD_TPS_2_RES%%</p>
+                <p>Les 20 restaurants les plus proches: %%CMD_TPS_3_RES%%</p>
+
             </div>
-        </form>
-        <h2>Recommandation </h2>
-        <form action="/recommandation" method="get">
-            <div>
-                <label for="reco">Voir une recommandation</label>
-                <input name="reco" id="reco" value="1,2_1,2">
-            </div>
-            <div>
-                <button>Recherche</button>
-            </div>
-        </form>        
-        <h2>Commande</h2>
-        <p>Commande <b style="color: #635e4e">%%CMD_1_NAME%%</b> resultat : </p>
-        <p>%%CMD_1_RES%%</p>
+        </div>
     </div>
     
 </body>
