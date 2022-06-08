@@ -77,7 +77,7 @@ const requestListener = async function (req, res) {
 				result_cmd = result_cmd.replace(/\n/ig,"<br>");
 				res.setHeader("Content-Type", "text/html");
 				res.writeHead(200);
-				indexFile = indexFile.toString().replace(/%%CMD_1_NAME%%/i ,cmd );
+				indexFile = indexFile.toString().replace(/%%CMD_1_NAME%%/i ,"chalice url" );
 				indexFile = indexFile.toString().replace(/%%CMD_1_RES%%/i ,result_cmd );
 				console.log(indexFile);
 
