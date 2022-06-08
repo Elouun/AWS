@@ -20,7 +20,7 @@ def connect():
     
     except pymysql.MySQLError as e:
         
-        return "connexion echouee")
+        return "connexion echouee"
 
     return conn
 
