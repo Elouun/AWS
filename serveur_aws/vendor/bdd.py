@@ -21,8 +21,11 @@ def connect():
     except pymysql.MySQLError as e:
         
         return "connexion echouee"
-
-    return conn
+    
+    if conn != None :
+        return conn
+    else :
+        return "connexion echouee"
 
 def request(sql, conn):
     
