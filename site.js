@@ -105,8 +105,8 @@ const requestListener = async function (req, res) {
 				console.log(result_stat_cmd)
 
 				
-				indexFile = indexFile.toString().replace(/%%CMD_STAT_1_RES%%/i ,result_stat_cmd[0][0] );
-				indexFile = indexFile.toString().replace(/%%CMD_STAT_2_RES%%/i ,result_stat_cmd[0][1] );
+				indexFile = indexFile.toString().replace(/%%CMD_STAT_1_RES%%/i ,result_stat_cmd[0] );
+				indexFile = indexFile.toString().replace(/%%CMD_STAT_2_RES%%/i ,result_stat_cmd[1] );
 				
 
 				res.setHeader("Content-Type", "text/html");
