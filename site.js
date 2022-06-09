@@ -95,6 +95,7 @@ const requestListener = async function (req, res) {
 				
 				const cmd_stat = "curl https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getStatistiques/"
 				let result_stat_cmd = await commande_aws(cmd_url);
+				console.log(result_stat_cmd)
 				result_stat_cmd = JSON.parse(result_stat_cmd);
 				console.log(result_stat_cmd)
 
