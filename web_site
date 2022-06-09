@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "web site script"
+
 if [ "$1" = "restart" ]; 
 then 
 
