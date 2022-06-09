@@ -9,7 +9,7 @@ then
 	echo "stop screen"
 	screen -X -S web_site quit &
 	echo "start screen"
-	sudo -H -u pi screen -dmS web_site /home/pi/AWS/run_site.sh
+	screen -dmS web_site /home/pi/AWS/run_site.sh
 	screen -ls
 
 
