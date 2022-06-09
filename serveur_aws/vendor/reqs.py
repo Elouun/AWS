@@ -33,4 +33,4 @@ reduceRestaurantBis = 'select b.business_id, name, address, city, state, postal_
 
 reduceRestaurant = 'select business_id, name, address, city, state, postal_code, latitude, longitude, stars from Business'
 
-statistiques = 'SELECT count(u.user_id) as nb_user FROM Users u UNION SELECT count(b.business_id) as nb_restau FROM Business b'
+statistiques = 'SELECT count(u.user_id) as nb_user FROM Users u UNION SELECT count(b.business_id) as nb_restau FROM Business b UNION SELECT count(c.business_id) as nb_reviews from Reviews c where date > SUBDATE(now(), INTERVAL 31 DAY)'
