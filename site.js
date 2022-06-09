@@ -92,6 +92,8 @@ const requestListener = async function (req, res) {
 					fs.createReadStream(path)
 						.on('error', function(){   
 							console.log("err image");
+							res.end("No image found");
+
 						})
 						.pipe(res).on('error', onError);
 
@@ -114,10 +116,10 @@ const requestListener = async function (req, res) {
 				result_stat_cmd = JSON.parse(result_stat_cmd);
 				console.log(result_stat_cmd)
 
-				
 				indexFile = indexFile.toString().replace(/%%CMD_STAT_1_RES%%/i ,result_stat_cmd[0] );
 				indexFile = indexFile.toString().replace(/%%CMD_STAT_2_RES%%/i ,result_stat_cmd[1] );
 				indexFile = indexFile.toString().replace(/%%CMD_STAT_3_RES%%/i ,result_stat_cmd[2] );
+
 
 
 				res.setHeader("Content-Type", "text/html");
