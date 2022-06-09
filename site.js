@@ -111,11 +111,12 @@ const requestListener = async function (req, res) {
 				const cmd_stat = "curl https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getStatistiques/ --silent"
 				let result_stat_cmd = await commande_aws(cmd_stat);
 				result_stat_cmd = JSON.parse(result_stat_cmd);
-				console.log(result_stat_cmd)
+				console.log(result_stat_cmd);
+
 
 				indexFile = indexFile.toString().replace(/%%CMD_STAT_1_RES%%/i ,result_stat_cmd[0] );
 				indexFile = indexFile.toString().replace(/%%CMD_STAT_2_RES%%/i ,result_stat_cmd[1] );
-				indexFile = indexFile.toString().replace(/%%CMD_STAT_3_RES%%/i ,result_stat_cmd[2]+3 );
+				indexFile = indexFile.toString().replace(/%%CMD_STAT_3_RES%%/i ,(parseInt(result_stat_cmd[2])+3).toString );
 
 				console.log("Next")
 
