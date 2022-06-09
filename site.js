@@ -101,7 +101,7 @@ const requestListener = async function (req, res) {
 				console.log("toto");
 				console.log(result_stat_cmd);
 				console.log("end");
-				/*result_stat_cmd = JSON.parse(result_stat_cmd);
+				result_stat_cmd = JSON.parse(result_stat_cmd);
 				console.log(result_stat_cmd)
 
 				/*
