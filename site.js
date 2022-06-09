@@ -89,7 +89,7 @@ const requestListener = async function (req, res) {
 					res.writeHead(200, {
 					  'Content-Type' : 'image/png'
 					});
-					fs.createReadStream(path).pipe(res).on('error', onError),;
+					fs.createReadStream(path).pipe(res).on('error', onError);
 
 				}	
 				break;	    		
