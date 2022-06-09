@@ -8,13 +8,13 @@ then
 	echo "stop screen"
 	screen -X -S web_site quit
 	echo "start screen"
-	sudo -H -u pi screen -d -m -S web_site node /home/pi/AWS/site.js
+	screen -dmS web_site /home/pi/AWS/run_site.sh
 
 
 elif [ "$1" = "status" ];
 then
 	ps fax | grep site.js
-	
+
 elif [ "$1" = "stop" ];
 then
 	echo "stop screen"
