@@ -18,11 +18,12 @@ elif [ "$1" = "stop" ];
 then
 	echo "stop screen"
 	screen -ls 
-	screen -X -S web_site quit
+	screen -X -S web_site quit &
+	echo "stop"
 
 else 
 	echo "panneau d'aide:"
-	echo "	restart   relance le site avec un git pull"
+	echo "	start   relance le site avec un git pull"
 	echo "	status    voir si le site fonctionne"
 	echo "	stop      stop le site"
 
