@@ -4,11 +4,12 @@ echo "web site script"
 
 if [ "$1" = "restart" ]; 
 then 
-
+	cd /home/pi/AWS 
+	git pull
 	echo "stop screen"
 	screen -X -S web_site quit &
 	echo "start screen"
-	screen -dmS web_site /home/pi/AWS/run_site.sh
+	sudo -H -u pi screen -dmS web_site /home/pi/AWS/run_site.sh
 	screen -ls
 
 
