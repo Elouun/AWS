@@ -117,11 +117,11 @@ const requestListener = async function (req, res) {
 				indexFile = indexFile.toString().replace(/%%CMD_STAT_2_RES%%/i ,result_stat_cmd[1] );
 				indexFile = indexFile.toString().replace(/%%CMD_STAT_3_RES%%/i ,result_stat_cmd[2] );
 
+				console.log("Next")
 
 				const cmd_tps = "bash /home/pi/AWS/temps_traitement.sh"
 				let result_tps_cmd = await commande_aws(cmd_tps);
-				//result_tps_cmd = JSON.parse(result_tps_cmd);
-				console.log("Next")
+				result_tps_cmd = JSON.parse(result_tps_cmd);
 
 				console.log(result_tps_cmd)
 
