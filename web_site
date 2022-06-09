@@ -2,9 +2,11 @@
 
 echo "web site script"
 
-if [ "$1" = "start" ]; 
+if [ "$1" = "restart" ]; 
 then 
 
+	echo "stop screen"
+	screen -X -S web_site quit &
 	echo "start screen"
 	screen -dmS web_site /home/pi/AWS/run_site.sh
 	screen -ls
