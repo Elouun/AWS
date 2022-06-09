@@ -15,6 +15,11 @@ const { exec } = require("child_process");
 let indexFile;
 
 
+function onError(err) {
+  // `this` === stream that encountered the error
+  console.log(err);
+}
+
 function request_aws(url,res) {
 	axios.get(url)
   	.then(response => {
@@ -84,7 +89,8 @@ const requestListener = async function (req, res) {
 					res.writeHead(200, {
 					  'Content-Type' : 'image/png'
 					});
-					fs.createReadStream(path).pipe(res);
+					fs.createReadStream(path).pipe(res).on('error', onError),;
+
 				}	
 				break;	    		
 
