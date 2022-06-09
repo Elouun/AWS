@@ -34,12 +34,14 @@ function commande_aws(cmd){
 		        console.log(`error: ${error.message}`);
 		    	resolve(error.message);
 		    }
+
 		    if (stderr) {
 		        console.log(`stderr: ${stderr}`);
-		    	resolve(stderr);
 		    }
+
 		    console.log(`stdout: ${stdout}`);
 		    resolve(stdout);
+		    
 		});
 	});
 }
