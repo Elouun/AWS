@@ -29,6 +29,8 @@ categories = ' select * from Business where Alcohol = 1 and NoiseLevel = 2 and R
 
 perso = 'select * from Business'
 
-reduceRestaurant = 'select business_id, name, address, city, state, postal_code, latitude, longitude, stars from Business'
+reduceRestaurantBis = 'select b.business_id, name, address, city, state, postal_code, latitude, longitude, stars, i.image_id from Business b NATURAL JOIN image i'
+
+reduceRestaurant = 'select business_id, name, address, city, state, postal_code, latitude, longitude, stars, i.photo_id from Business NATURAL JOIN image i'
 
 statistiques = 'SELECT count(u.user_id) as nb_user FROM Users u UNION SELECT count(b.business_id) as nb_restau FROM Business b'
