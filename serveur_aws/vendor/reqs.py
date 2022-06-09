@@ -1,5 +1,5 @@
 restaurant = 'Select * from Business where name = "?n"'
-restaurantNameAlmost = 'select business_id, image_id, name, address, city, state, postal_code, latitude, longitude, stars from Business NATURAL JOIN image where name like "%?key%"'
+restaurantNameAlmost = 'select business_id, name, address, city, state, postal_code, latitude, longitude, stars,  image_id from Business NATURAL JOIN image where name like "%?key%"'
 
 countRestaurantNameAlmost = 'select count(*) from Business where name like "%?key%"'
 
@@ -31,6 +31,6 @@ perso = 'select * from Business'
 
 reduceRestaurantBis = 'select b.business_id, name, address, city, state, postal_code, latitude, longitude, stars, i.image_id from Business b NATURAL JOIN image i'
 
-reduceRestaurant = 'select business_id, name, address, city, state, postal_code, latitude, longitude, stars, i.photo_id from Business NATURAL JOIN image i'
+reduceRestaurant = 'select business_id, name, address, city, state, postal_code, latitude, longitude, stars from Business'
 
 statistiques = 'SELECT count(u.user_id) as nb_user FROM Users u UNION SELECT count(b.business_id) as nb_restau FROM Business b'
