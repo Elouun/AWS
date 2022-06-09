@@ -119,7 +119,7 @@ const requestListener = async function (req, res) {
 
 				console.log("Next")
 
-				const cmd_tps = "bash /home/pi/AWS/temps_traitement.sh"
+				const cmd_tps = "bash /home/pi/AWS/temps_traitement.sh 2>&1"
 				let result_tps_cmd = await commande_aws(cmd_tps);
 				//result_tps_cmd = JSON.parse(result_tps_cmd);
 
