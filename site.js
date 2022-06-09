@@ -118,7 +118,7 @@ const requestListener = async function (req, res) {
 				indexFile = indexFile.toString().replace(/%%CMD_STAT_3_RES%%/i ,result_stat_cmd[2] );
 
 
-				const cmd_tps = "curl https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getStatistiques/"
+				const cmd_tps = "./home/pi/AWS/temps_traitement.sh"
 				let result_tps_cmd = await commande_aws(cmd_tps);
 				//result_tps_cmd = JSON.parse(result_tps_cmd);
 				console.log(result_tps_cmd)
