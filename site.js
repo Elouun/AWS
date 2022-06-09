@@ -121,9 +121,12 @@ const requestListener = async function (req, res) {
 
 				const cmd_tps = "bash /home/pi/AWS/temps_traitement.sh 2>&1"
 				let result_tps_cmd = await commande_aws(cmd_tps);
-				result_tps_cmd = result_tps_cmd.split(';;');
+				result_tps_cmd = result_tps_cmd.replace(/\n/ig,"<br>").replace(/\t/ig," ").split(';;');
 
 				console.log(result_tps_cmd)
+				indexFile = indexFile.toString().replace(/%%CMD_TPS_1_RES%%/i ,result_tps_cmd[0] );
+				indexFile = indexFile.toString().replace(/%%CMD_TPS_2_RES%%/i ,result_tps_cmd[1] );
+				indexFile = indexFile.toString().replace(/%%CMD_TPS_3_RES%%/i ,result_tps_cmd[2] );
 
 
 				res.setHeader("Content-Type", "text/html");
