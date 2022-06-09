@@ -4,3 +4,5 @@
 /node_modules/*
 *.log
 *.txt
+/serveur_aws/.chalice/*
+/serveur_aws/vendor/__pycache__/*
