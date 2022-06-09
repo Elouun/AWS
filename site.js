@@ -93,7 +93,7 @@ const requestListener = async function (req, res) {
 						.on('error', function(){   
 							console.log("err image");
 							res.writeHead(404);
-							res.end("No image found");
+							res.end("Image not found");
 
 						})
 						.pipe(res).on('error', onError);
