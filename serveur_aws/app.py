@@ -29,7 +29,7 @@ def getCategoriesOr(param):
 	
 	d = {}
 	
-	print(tab)
+	#print(tab)
 	
 	if tab[-1].split('_')[0] == 'usr':
 		
@@ -60,7 +60,7 @@ def getCategoriesOr(param):
 		    ids[count] = str(row[10])
 		    count += 1
 		
-		print(ids.values())
+		#print(ids.values())
 		
 		ids_list = ','.join(list(ids.values())) + '_'
 		
@@ -68,7 +68,7 @@ def getCategoriesOr(param):
 			
 			ids_list += str(id_new) + ','
 		
-		print(ids_list[:-1])
+		#print(ids_list[:-1])
 		
 		res = bdd.reco(ids_list[:-1], "french")
 		
