@@ -31,11 +31,11 @@ def getCategoriesOr(param):
 	
 	print(tab)
 	
-	if tab[-1].split(';')[0] == 'usr':
+	if tab[-1].split('_')[0] == 'usr':
 		
 		print(tab[-1])
 		
-		id_new = tab[-1].split(';')[1]
+		id_new = tab[-1].split('_')[1]
 		
 		param = ''
 		
