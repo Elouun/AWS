@@ -25,6 +25,7 @@ def save_data():
 
 @app.route('/getCategoriesOr/{param}')
 def getCategoriesOr(param):
+	
 	tab = param.split(',')
 	
 	d = {}
@@ -153,10 +154,10 @@ def get_restaurant(name):
 	    count += 1
 	return  json.dumps(d)
 
-@app.route('/getCategories/{list}')
-def get_categories(list):
+@app.route('/getCategories/{param}')
+def get_categories(param):
 
-	tab = list.split(',')
+	tab = param.split(',')
 	
 	args = tab[-1].split('_')
 	
@@ -226,7 +227,6 @@ def get_categories(list):
 	
 	
 	else :
-	
 	
 		add = ""
 		cpt = 0 
