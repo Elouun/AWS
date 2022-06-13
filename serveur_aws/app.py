@@ -29,6 +29,8 @@ def getCategoriesOr(param):
 	
 	d = {}
 	
+	print(tab)
+	
 	if tab[-1].split(';')[0] == 'usr':
 		
 		print(tab[-1])
