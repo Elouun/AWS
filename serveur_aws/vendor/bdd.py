@@ -27,6 +27,19 @@ def connect():
     else :
         return "connexion echouee"
 
+def reco(param, model):
+    
+    if model == "indian":
+        link = "http://93.12.245.177:8000/recommandation_indian?reco="
+    else :
+        link = "http://93.12.245.177:8000/recommandation_french?reco="
+        
+    link = link + param
+    
+    res = requests.get(link)
+    
+    return res
+    
 def request(sql, conn):
     
     res = ""
