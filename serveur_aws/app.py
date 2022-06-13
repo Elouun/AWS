@@ -222,6 +222,8 @@ def get_user(user):
 	#req = reqs.addUser.replace("?v", user)
 	
 	#bdd.insert(reqs, conn)
+	
+	return res[0][0]
 
 @app.route('/getReco')
 def get_user():
