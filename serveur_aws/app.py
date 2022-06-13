@@ -23,6 +23,73 @@ def default():
 def save_data():
     return 1
 
+@app.route('/getCategoriesOr/{param}')
+def getCategoriesOr(param):
+	tab = list.split(',')
+	
+	d = {}
+	
+	if tab[-1].split(;)[0] == 'usr':
+		
+		id_new = tab[-1].split(;)[1]
+		
+		param = ''
+		
+		add = ""
+		cpt = 0 
+		for i in tab :
+			if cpt==0 :
+				add = " where " + i + " = 1"
+			else :
+				add = add + " or " + i + " = 1" 
+			cpt = cpt+1
+
+		req = reqs.reduceRestaurantBis
+		reqfinal = req + add 
+		res = bdd.request(reqfinal, conn)
+		
+		ids = {}
+
+		count = 0
+		for row in res:
+		    d[count] = {"business_id":row[0],"name":row[1],"address":row[2],"city":row[3], "state":row[4],"postal_code":row[5],"latitude":row[6],"longitude":row[7],"stars":row[8] ,"image_id":row[9]}
+		    ids[count] = row[10]
+		    count += 1
+		
+		ids_list = ','.join(list(ids.values)) + '_'
+		
+		for i in list(ids.values):
+			
+			ids_list += str(id_new) + ','
+		
+		print(ids_list[:-1])
+		
+		res = bdd.reco(ids_list[:-1], "french")
+		
+		print(res)
+		
+	else :
+		
+		add = ""
+		cpt = 0 
+		for i in tab :
+			if cpt==0 :
+				add = " where " + i + " = 1"
+			else :
+				add = add + " or " + i + " = 1" 
+			cpt = cpt+1
+
+		req = reqs.reduceRestaurantBis
+		reqfinal = req + add 
+		res = bdd.request(reqfinal, conn)
+
+		count = 0
+		for row in res:
+		    d[count] = {"business_id":row[0],"name":row[1],"address":row[2],"city":row[3], "state":row[4],"postal_code":row[5],"latitude":row[6],"longitude":row[7],"stars":row[8] ,"image_id":row[9]}
+		    count += 1
+	
+	return  json.dumps(d)
+
 
 @app.route('/getCountRestaurantNameAlmost/{name}')
 def get_restaurant(name):
