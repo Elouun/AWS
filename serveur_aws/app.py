@@ -60,6 +60,8 @@ def getCategoriesOr(param):
 		    ids[count] = row[10]
 		    count += 1
 		
+		print(list(ids.values))
+		
 		ids_list = ','.join(list(ids.values)) + '_'
 		
 		for i in list(ids.values):
