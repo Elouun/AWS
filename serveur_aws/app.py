@@ -64,7 +64,7 @@ def getCategoriesOr(param):
 		
 		#print(ids.values())
 		
-		print(len(list(ids.values())))
+		#print(len(list(ids.values())))
 		
 		ids_list = ','.join(list(ids.values())) + '_'
 		
@@ -76,8 +76,8 @@ def getCategoriesOr(param):
 		
 		res = bdd.reco(ids_list[:-1], model)
 		
-		print("result here : ")
-		print(res)
+		#print("result here : ")
+		#print(res)
 		
 		res = res.split(',')
 		
@@ -89,8 +89,8 @@ def getCategoriesOr(param):
 			count = list(ids.keys())[list(ids.values()).index(bid)]
 			final[i] = d[count]
 			
-			print(final[i])
-			print(d[count])
+			#print(final[i])
+			#print(d[count])
 		
 		return json.dumps(final)
 		
@@ -114,7 +114,7 @@ def getCategoriesOr(param):
 		    d[count] = {"business_id":row[0],"name":row[1],"address":row[2],"city":row[3], "state":row[4],"postal_code":row[5],"latitude":row[6],"longitude":row[7],"stars":row[8] ,"image_id":row[9]}
 		    count += 1
 	
-	return  json.dumps(d)
+		return  json.dumps(d)
 
 
 @app.route('/getCountRestaurantNameAlmost/{name}')
@@ -157,25 +157,94 @@ def get_restaurant(name):
 def get_categories(list):
 
 	tab = list.split(',')
-	add = ""
-	cpt = 0 
-	for i in tab :
-		if cpt==0 :
-			add = " where " + i + " = 1"
-		else :
-			add = add + " and " + i + " = 1" 
-		cpt = cpt+1
-		
-	req = reqs.reduceRestaurantBis
-	reqfinal = req + add 
-	res = bdd.request(reqfinal, conn)
 	
-	d = {}
-	count = 0
-	for row in res:
-	    d[count] = {"business_id":row[0],"name":row[1],"address":row[2],"city":row[3], "state":row[4],"postal_code":row[5],"latitude":row[6],"longitude":row[7],"stars":row[8] ,"image_id":row[9]}
-	    count += 1
-	return  json.dumps(d)
+	args = tab[-1].split('_')
+	
+	if args[0] == 'usr':
+		
+		model = args[2]
+		
+		id_new = args[1]
+		
+		param = ''
+		
+		add = ""
+		cpt = 0 
+		for i in tab[:-1] :
+			if cpt==0 :
+				add = " where " + i + " = 1"
+			else :
+				add = add + " and " + i + " = 1" 
+			cpt = cpt+1
+
+		req = reqs.reduceRestaurantBis
+		reqfinal = req + add 
+		res = bdd.request(reqfinal, conn)
+		
+		ids = {}
+
+		count = 0
+		for row in res:
+		    d[count] = {"business_id":row[0],"name":row[1],"address":row[2],"city":row[3], "state":row[4],"postal_code":row[5],"latitude":row[6],"longitude":row[7],"stars":row[8] ,"image_id":row[9]}
+		    ids[count] = str(row[10])
+		    count += 1
+		
+		#print(ids.values())
+		
+		print(len(list(ids.values())))
+		
+		ids_list = ','.join(list(ids.values())) + '_'
+		
+		for i in list(ids.values()):
+			
+			ids_list += str(id_new) + ','
+		
+		#print(ids_list[:-1])
+		
+		res = bdd.reco(ids_list[:-1], model)
+		
+		print("result here : ")
+		print(res)
+		
+		res = res.split(',')
+		
+		final = {}
+		
+		for i in range(len(res)):
+			
+			bid = res[i].replace("\n", "")
+			count = list(ids.keys())[list(ids.values()).index(bid)]
+			final[i] = d[count]
+			
+			print(final[i])
+			print(d[count])
+		
+		return json.dumps(final)
+	
+	
+	
+	else :
+	
+	
+		add = ""
+		cpt = 0 
+		for i in tab :
+			if cpt==0 :
+				add = " where " + i + " = 1"
+			else :
+				add = add + " and " + i + " = 1" 
+			cpt = cpt+1
+
+		req = reqs.reduceRestaurantBis
+		reqfinal = req + add 
+		res = bdd.request(reqfinal, conn)
+
+		d = {}
+		count = 0
+		for row in res:
+		    d[count] = {"business_id":row[0],"name":row[1],"address":row[2],"city":row[3], "state":row[4],"postal_code":row[5],"latitude":row[6],"longitude":row[7],"stars":row[8] ,"image_id":row[9]}
+		    count += 1
+		return  json.dumps(d)
 
 @app.route('/getReviewsFromId/{bId}')
 def getReviewsFromId(bId):
