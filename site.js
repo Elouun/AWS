@@ -97,7 +97,7 @@ const requestListener = async function (req, res) {
 					res.writeHead(404);
 				}
 				else {
-					var path = "/home/pi/Pictures/processed" + param;  
+					var path = "/home/pi/Pictures/processed/" + param;  
 					console.log(path);
 					res.writeHead(200, {
 					  'Content-Type' : 'image/png'
