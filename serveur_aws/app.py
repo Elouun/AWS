@@ -29,7 +29,7 @@ def getCategoriesOr(param):
 	
 	d = {}
 	
-	if tab[-1].split(;)[0] == 'usr':
+	if tab[-1].split(';')[0] == 'usr':
 		
 		id_new = tab[-1].split(;)[1]
 		
