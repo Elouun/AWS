@@ -1,7 +1,8 @@
 #!/bin/bash
 
-mkdir processed
 path="/home/pi/Pictures"
+mkdir "$path/processed"
+
 i="ls $path/precessed | wc -l"
 max="ls $path | wc -l"
 echo $path
