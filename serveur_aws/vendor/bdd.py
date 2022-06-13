@@ -39,7 +39,7 @@ def reco(param, model):
     
     res = requests.get(link)
     
-    return res
+    return res.text
     
 def request(sql, conn):
     
