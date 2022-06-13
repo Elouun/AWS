@@ -36,6 +36,6 @@ for i in range(len(users)):
 	outputs[items[i]] = out[0][0]
 
 grades = dict(sorted(outputs.items(), key= lambda item: item[1], reverse=True))
-liste = list(grades.keys())[:10]
+liste = list(grades.keys())
 liste = [str(i) for i in liste]
 print(",".join(liste))
