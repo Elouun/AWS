@@ -34,3 +34,41 @@ reduceRestaurantBis = 'select b.business_id, name, address, city, state, postal_
 reduceRestaurant = 'select business_id, name, address, city, state, postal_code, latitude, longitude, stars from Business'
 
 statistiques = 'SELECT count(u.user_id) as nb_user FROM Users u UNION SELECT count(b.business_id) as nb_restau FROM Business b UNION SELECT count(c.business_id) as nb_reviews from Reviews c where date > SUBDATE(now(), INTERVAL 31 DAY)'
+
+Janvier="[Japanese, Ramen], [Alcohol, Upscale], [Alcohol, American (New), Breakfast & Brunch, Classy], [Classy, Upscale], [Alcohol, Tapas/Small Plates], [Japanese, Trendy]"
+ 
+Fevrier="[Japanese, Ramen], [Alcohol, Upscale], [Alcohol, Intimate], [Alcohol, American (New), Breakfast & Brunch, Classy], [Classy, Upscale], [Alcohol, Romantic], [Classy, Romantic], [Japanese, Trendy]"
+ 
+Mars="[Japanese, Ramen], [Beer, Classy], [Alcohol, American (New), Breakfast & Brunch, Classy], [American (Traditional), Seafood], [Japanese, Trendy]"
+ 
+Avril="[Alcohol, Chinese], [Alcohol, Salad], [Classy, Hipster], [Pizza, Sandwiches], [Classy, Pizza], [Alcohol, Vegetarian], [Burgers, Fast Food]"
+ 
+Mai="[Alcohol, Salad], [Mexican, Tex-Mex], [Pizza, Sandwiches], [Classy, Pizza], [Alcohol, Vegetarian], [Burgers, Fast Food]"
+ 
+Juin="[Alcohol, Salad]"
+ 
+Juillet="[Beer, Classy]"
+ 
+Aout="[Classy, Pizza]"
+ 
+Septembre="[Alcohol, Upscale], [Beer, Classy], [Classy, Upscale], [Alcohol, Romantic], [American (Traditional), Seafood]"
+ 
+Octobre= "[]"
+ 
+Novembre="[Japanese, Ramen], [Beer, Classy], [Alcohol, American (New), Breakfast & Brunch, Classy], [Alcohol, Tapas/Small Plates]"
+ 
+Decembre="[Alcohol, Upscale], [Alcohol, Salad]"
+
+Lundi="[Alcohol, American (New), Breakfast & Brunch, Classy]"
+ 
+Mardi="[Japanese, Trendy]"
+ 
+Mercredi="[Asian Fusion, Classy]"
+ 
+Jeudi="[Japanese, Ramen]"
+ 
+Vendredi="[Alcohol, Upscale], [Japanese, Trendy]]"
+ 
+Samedi="[Japanese, Ramen], [Asian Fusion, Classy]"
+ 
+Dimanche="[Alcohol, Upscale], [Alcohol, American (New), Breakfast & Brunch, Classy], [Classy, Upscale], [Alcohol, Tapas/Small Plates]"
