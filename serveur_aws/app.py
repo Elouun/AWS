@@ -224,9 +224,9 @@ def get_user(user):
 	user = "'"+str(res)+"'," + user + ',' + str(res) + ',0, 0'
 	req = reqs.addUser.replace("?v", user)
 	
-	#bdd.insert(reqs, conn)
+	bdd.insert(req, conn)
 	
-	return res[0][0]
+	return 'ok'
 
 @app.route('/getReco')
 def get_user():
