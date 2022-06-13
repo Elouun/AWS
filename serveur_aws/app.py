@@ -72,6 +72,7 @@ def getCategoriesOr(param):
 		
 		res = bdd.reco(ids_list[:-1], "french")
 		
+		print("result here : ")
 		print(res)
 		
 	else :
