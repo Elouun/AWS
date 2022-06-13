@@ -25,7 +25,7 @@ def save_data():
 
 @app.route('/getCategoriesOr/{param}')
 def getCategoriesOr(param):
-	tab = list.split(',')
+	tab = param.split(',')
 	
 	d = {}
 	
