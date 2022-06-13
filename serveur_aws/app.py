@@ -62,6 +62,8 @@ def getCategoriesOr(param):
 		
 		#print(ids.values())
 		
+		print(len(list(ids.values())))
+		
 		ids_list = ','.join(list(ids.values())) + '_'
 		
 		for i in list(ids.values()):
