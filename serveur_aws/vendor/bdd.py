@@ -37,6 +37,8 @@ def reco(param, model):
         
     link = link + param
     
+    print(link)
+    
     res = requests.get(link)
     
     return res.text
