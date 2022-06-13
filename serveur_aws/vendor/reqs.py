@@ -13,7 +13,7 @@ review_by_user_id = 'SELECT text,stars FROM Users u,Reviews r where u.user_id = 
 
 reviews_by_restaurant_id = 'SELECT u.name, text, stars FROM Users u,Reviews r where u.user_id = r.user_id and business_id="?id" order by date desc limit 5'
 
-addUser = 'INSERT INTO Users(identifiant, name, password) VALUES (?v)'
+addUser = 'insert into Users(user_id, name, password, identifiant, id_new, review_count, average_stars) VALUES (?v);'
 
 restauetoiles = 'select * from Business where stars = "?n"'
 
