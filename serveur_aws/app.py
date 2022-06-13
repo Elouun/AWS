@@ -41,7 +41,7 @@ def getCategoriesOr(param):
 		
 		add = ""
 		cpt = 0 
-		for i in tab :
+		for i in tab[:-1] :
 			if cpt==0 :
 				add = " where " + i + " = 1"
 			else :
