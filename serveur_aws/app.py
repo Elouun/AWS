@@ -223,8 +223,6 @@ def get_user(user):
 	user = "'"+str(id)+"'," + user + ',' + str(id) + ',0, 0'
 	req = reqs.addUser.replace("?v", user)
 	
-	return req
-	
 	bdd.insert(req, conn)
 	
 	return 'ok'
