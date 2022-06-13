@@ -3,7 +3,7 @@
 path="/home/pi/Pictures"
 mkdir "$path/processed"
 
-i="ls $path/precessed | wc -l"
+i="ls $path/processed | wc -l"
 max="ls $path | wc -l"
 echo $path
 echo $i
