@@ -160,6 +160,8 @@ def get_categories(list):
 	
 	args = tab[-1].split('_')
 	
+	d = {}
+	
 	if args[0] == 'usr':
 		
 		model = args[2]
