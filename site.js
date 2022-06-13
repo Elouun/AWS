@@ -62,28 +62,45 @@ const requestListener = async function (req, res) {
 
 
 			case "/serve":
-				param = req.url.split('resto=')[1].replace(/\+/gi, ' ');
-				console.log(param);
-				request_aws("https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getRestaurant/" +param ,res)
+				if (req.url.split('resto=')[1] === undefined) {
+					res.writeHead(404);
+					res.end("Missing param ");	
+				}
+				else {
+					param = req.url.split('resto=')[1].replace(/\+/gi, ' ');
+					console.log(param);
+					request_aws("https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getRestaurant/" +param ,res)
+				}
 			    break;
 
 			case "/recommandation_french": 
-				param = req.url.split('reco=')[1].replace(/%2C/gi, ',');
-				console.log(param);
-				let result_reco = await commande_aws("python3 ./model/testModelFrench.py " + param + " 2> err.log");
-		    		
-				
-				res.setHeader("Content-Type", "application/json");
-				res.writeHead(200);
-				res.end(result_reco);
-				break;
+				if (req.url.split('resto=')[1] === undefined) {
+					res.writeHead(404);
+					res.end("Missing param ");	
+				}
+				else {
+					param = req.url.split('reco=')[1].replace(/%2C/gi, ',');
+					console.log(param);
+					let result_reco = await commande_aws("python3 ./model/testModelFrench.py " + param + " 2> err.log");
+
+
+					res.setHeader("Content-Type", "application/json");
+					res.writeHead(200);
+					res.end(result_reco);
+					break;
+				}
 				
 			
-			case "/recommandation_indian": 
-				param = req.url.split('reco=')[1].replace(/%2C/gi, ',');
-				console.log(param);
-				let result_reco_indian = await commande_aws("python3 ./model/testModelIndian.py " + param + " 2> err.log");
-		    		
+			case "/recommandation_indian":
+				if (req.url.split('resto=')[1] === undefined) {
+					res.writeHead(404);
+					res.end("Missing param ");	
+				}
+				else {
+					param = req.url.split('reco=')[1].replace(/%2C/gi, ',');
+					console.log(param);
+					let result_reco_indian = await commande_aws("python3 ./model/testModelIndian.py " + param + " 2> err.log");
+				}
 				
 				res.setHeader("Content-Type", "application/json");
 				res.writeHead(200);
@@ -106,7 +123,7 @@ const requestListener = async function (req, res) {
 						.on('error', function(){   
 							console.log("err image");
 							res.writeHead(404);
-							res.end("Image not found");
+							res.end("Image not found " + path);
 
 						})
 						.pipe(res).on('error', onError);
