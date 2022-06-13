@@ -29,7 +29,7 @@ categories = ' select * from Business where Alcohol = 1 and NoiseLevel = 2 and R
 
 perso = 'select * from Business'
 
-reduceRestaurantBis = 'select b.business_id, name, address, city, state, postal_code, latitude, longitude, stars, i.image_id from Business b NATURAL JOIN image i'
+reduceRestaurantBis = 'select b.business_id, name, address, city, state, postal_code, latitude, longitude, stars, i.image_id, b.id_new from Business b NATURAL JOIN image i'
 
 reduceRestaurant = 'select business_id, name, address, city, state, postal_code, latitude, longitude, stars from Business'
 
