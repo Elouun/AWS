@@ -82,12 +82,12 @@ const requestListener = async function (req, res) {
 			case "/recommandation_indian": 
 				param = req.url.split('reco=')[1].replace(/%2C/gi, ',');
 				console.log(param);
-				let result_reco = await commande_aws("python3 ./model/testModelIndian.py " + param + " 2> err.log");
+				let result_reco_indian = await commande_aws("python3 ./model/testModelIndian.py " + param + " 2> err.log");
 		    		
 				
 				res.setHeader("Content-Type", "application/json");
 				res.writeHead(200);
-				res.end(result_reco);
+				res.end(result_reco_indian);
 				break;
 			
 
