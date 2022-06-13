@@ -74,7 +74,7 @@ def getCategoriesOr(param):
 		
 		#print(ids_list[:-1])
 		
-		res = bdd.reco(ids_list[:-1], "french")
+		res = bdd.reco(ids_list[:-1], model)
 		
 		print("result here : ")
 		print(res)
