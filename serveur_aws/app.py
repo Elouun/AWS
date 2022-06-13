@@ -215,7 +215,7 @@ def verifiyUsernamePassword(id) :
 @app.route('/addUser/{user}')
 def get_user(user):
 	
-	res = bdd.request('select max(id_new) from Users;', conn)
+	res = bdd.request('select max(id_new)+1 from Users;', conn)
 	id = res[0][0]
 	
 	# (user_id, name, password, identifiant, id_new, review_count, average_stars)
