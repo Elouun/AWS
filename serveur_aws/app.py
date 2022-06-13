@@ -85,8 +85,11 @@ def getCategoriesOr(param):
 			
 			bid = res[i]
 			count = list(ids.keys())[list(ids.values()).index(bid)]
-			
 			final[i] = d[count]
+			
+			print(final[i])
+			print(d[count])
+		
 		return json.dumps(final)
 		
 	else :
