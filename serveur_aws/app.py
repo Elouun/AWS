@@ -215,9 +215,13 @@ def verifiyUsernamePassword(id) :
 @app.route('/addUser/{user}')
 def get_user(user):
 	
-	req = reqs.addUser.replace("?v", user)
+	res = bdd.request('select max(id_new) from Users;', conn)
 	
-	bdd.insert(reqs, conn)
+	print(res)
+	
+	#req = reqs.addUser.replace("?v", user)
+	
+	#bdd.insert(reqs, conn)
 
 @app.route('/getReco')
 def get_user():
