@@ -217,9 +217,12 @@ def get_user(user):
 	
 	res = bdd.request('select max(id_new) from Users;', conn)
 	
-	print(res)
 	
-	#req = reqs.addUser.replace("?v", user)
+	
+	# (user_id, name, password, identifiant, id_new, review_count, average_stars)
+	
+	user = "'"+str(res)+"'," + user + ',' + str(res) + ',0, 0'
+	req = reqs.addUser.replace("?v", user)
 	
 	#bdd.insert(reqs, conn)
 	
