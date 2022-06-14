@@ -28,6 +28,9 @@ def addReviews(param):
 	
 	tab = param.split(',')
 	
+	print(tab)
+	exit()
+	
 	review_id = tab[2] + tab[0][:5] + tab[1][:5]
 	review_id = "'"+review_id[:20].replace("'","")+ "'"
 	
