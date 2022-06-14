@@ -23,6 +23,23 @@ def default():
 def save_data():
     return 1
 
+@app.route('/addReviews/{param}')
+def addReviews(param):
+	
+	tab = param.split(',')
+	
+	review_id = tab[2] + tab[0][:5] + tab[1][:5]
+	review_id = review_id[:20]
+	
+	param = review_id + ',' + param
+	
+	req = reqs.addReview.replace("?r", param)
+	
+	bdd.insert(req, conn)
+	
+	return 'ok'
+	
+
 @app.route('/getCategoriesOr/{param}')
 def getCategoriesOr(param):
 	
