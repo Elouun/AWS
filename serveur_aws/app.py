@@ -28,13 +28,10 @@ def addReviews(param):
 	
 	tab = param.split(',')
 	
-	print(tab)
-	exit()
+	res = bdd.request('select max(review_id)+1 from Reviews;', conn)
+	id = res[0][0]
 	
-	review_id = tab[2] + tab[0][:5] + tab[1][:5]
-	review_id = "'"+review_id[:20].replace("'","")+ "'"
-	
-	param = review_id + ',' + param
+	param = str(id) + ',' + param
 	
 	req = reqs.addReview.replace("?r", param)
 	
