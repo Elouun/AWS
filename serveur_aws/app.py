@@ -32,7 +32,7 @@ def addReviews(param):
 	res = [1]
 	while(len(res) != 0):
 		nb = rd.randint(20, 1000000000)
-		res = bdd.request("select review_id where review_id ='"+str(nb)+"';", conn)
+		res = bdd.request("select review_id from Reviews where review_id ='"+str(nb)+"';", conn)
 		print(res)
 	
 	#print(id)
