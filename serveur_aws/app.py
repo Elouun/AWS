@@ -28,7 +28,7 @@ def addReviews(param):
 	
 	tab = param.split(',')
 	
-	res = bdd.request('select max(review_id)+1 from Reviews;', conn)
+	res = bdd.request('select max(review_id)+1 from Reviews where CHAR_LENGTH(review_id) < 15;', conn)
 	id = res[0][0]
 	
 	param = str(id) + ',' + param
