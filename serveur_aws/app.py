@@ -35,6 +35,8 @@ def addReviews(param):
 	
 	req = reqs.addReview.replace("?r", param)
 	
+	req = re.sub("%20", " ", req)
+	
 	bdd.insert(req, conn)
 	
 	return 'ok'
