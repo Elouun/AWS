@@ -5,7 +5,7 @@ countRestaurantNameAlmost = 'select count(*) from Business where name like "%?ke
 
 restaurantID = 'Select * from Business where business_id = "?n"'
 
-addReview = 'insert into (review_id, business_id, user_id, date, text, stars) Reviews values (?r)'
+addReview = 'insert into Reviews(review_id, business_id, user_id, date, text, stars)  values (?r)'
 
 user = 'select * from Users where name = "?n"'
 userID = 'Select * from Users where user_id = "?n"'
