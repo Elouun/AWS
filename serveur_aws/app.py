@@ -7,6 +7,7 @@ import numpy as np
 import bdd
 import reqs
 import re 
+import random as rd
 
 
 app = Chalice(app_name='Yummy\'Dmvice')
@@ -28,12 +29,11 @@ def addReviews(param):
 	
 	tab = param.split(',')
 	
-	res = bdd.request('select max(review_id)+1 from Reviews where CHAR_LENGTH(review_id) < 15;', conn)
-	id = res[0][0]
+	nb = rd.randint(20, 1000000000)
 	
-	print(id)
+	#print(id)
 	
-	param = str(id) + ',' + param
+	param = str(nb) + ',' + param
 	
 	req = reqs.addReview.replace("?r", param)
 	
