@@ -392,14 +392,14 @@ def verifiyUsernamePassword(id) :
 	ids = id.split(",")
 	
 	user = ids[0]
-	mdp = ids[1]
 
-	res = bdd.request(reqs.verifyLoginPw.replace("?e", user).replace("?p", mdp), conn)
+	res = bdd.request(reqs.verifyLoginPw.replace("?e", user), conn)
 
 	d = {}
 	count = 0
 	for row in res:
-		d[count] = {"user_id":row[0],"name":row[1],"review_count":row[2],"id_new":row[3]}
+		#user_id, password, name, review_count, id_new from
+		d[count] = {"user_id":row[0],"password":row[1],"name":row[2],"review_count":row[3],"id_new":row[4]}
 		count += 1
 
 	return  json.dumps(d)
