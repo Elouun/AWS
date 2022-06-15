@@ -489,3 +489,193 @@ def get_user():
         return 1
 
     return "no param"
+
+
+@app.route('/TendMonth/{name}')
+def TendMonth(name):
+
+	month = name.split(',')
+	day = month[1]
+	if month[0]== 'janvier' :
+		if day=='lundi':
+			result = reqs.janLundi
+		elif day=='mardi':
+			result = reqs.janMardi
+		elif day=='mercredi':
+			result = reqs.janMercredi
+		elif day=='jeudi':
+			result = reqs.janJeudi
+		elif day=='vendredi':
+			result = reqs.janVendredi
+		elif day=='samedi':
+			result = reqs.janSamedi
+		else :
+			result = reqs.janDimanche
+	elif month[0]== 'fevrier' :
+		if day=='lundi':
+			result = reqs.fevLundi
+		elif day=='mardi':
+			result = reqs.fevMardi
+		elif day=='mercredi':
+			result = reqs.fevMercredi
+		elif day=='jeudi':
+			result = reqs.fevJeudi
+		elif day=='vendredi':
+			result = reqs.fevVendredi
+		elif day=='samedi':
+			result = reqs.fevSamedi
+		else :
+			result = reqs.fevDimanche
+	elif month[0]== 'mars' :
+		if day=='lundi':
+			result = reqs.marLundi
+		elif day=='mardi':
+			result = reqs.marMardi
+		elif day=='mercredi':
+			result = reqs.marMercredi
+		elif day=='jeudi':
+			result = reqs.marJeudi
+		elif day=='vendredi':
+			result = reqs.marVendredi
+		elif day=='samedi':
+			result = reqs.marSamedi
+		else :
+			result = reqs.marDimanche
+	elif month[0]== 'avril' :
+		if day=='lundi':
+			result = reqs.avrLundi
+		elif day=='mardi':
+			result = reqs.avrMardi
+		elif day=='mercredi':
+			result = reqs.avrMercredi
+		elif day=='jeudi':
+			result = reqs.avrJeudi
+		elif day=='vendredi':
+			result = reqs.avrVendredi
+		elif day=='samedi':
+			result = reqs.avrSamedi
+		else :
+			result = reqs.avrDimanche
+	elif month[0]== 'mai' :
+		if day=='lundi':
+			result = reqs.maiLundi
+		elif day=='mardi':
+			result = reqs.maiMardi
+		elif day=='mercredi':
+			result = reqs.maiMercredi
+		elif day=='jeudi':
+			result = reqs.maiJeudi
+		elif day=='vendredi':
+			result = reqs.maiVendredi
+		elif day=='samedi':
+			result = reqs.maiSamedi
+		else :
+			result = reqs.maiDimanche
+	elif month[0]== 'juin' :
+		if day=='lundi':
+			result = reqs.juinLundi
+		elif day=='mardi':
+			result = reqs.juinMardi
+		elif day=='mercredi':
+			result = reqs.juinMercredi
+		elif day=='jeudi':
+			result = reqs.juinJeudi
+		elif day=='vendredi':
+			result = reqs.juinVendredi
+		elif day=='samedi':
+			result = reqs.juinSamedi
+		else :
+			result = reqs.juinDimanche
+	elif month[0]== 'juillet' :
+		if day=='lundi':
+			result = reqs.juilletLundi
+		elif day=='mardi':
+			result = reqs.juilletMardi
+		elif day=='mercredi':
+			result = reqs.juilletMercredi
+		elif day=='jeudi':
+			result = reqs.juilletJeudi
+		elif day=='vendredi':
+			result = reqs.juilletVendredi
+		elif day=='samedi':
+			result = reqs.juilletSamedi
+		else :
+			result = reqs.juilletDimanche
+	elif month[0]== 'aout' :
+		if day=='lundi':
+			result = reqs.aoutLundi
+		elif day=='mardi':
+			result = reqs.aoutMardi
+		elif day=='mercredi':
+			result = reqs.aoutMercredi
+		elif day=='jeudi':
+			result = reqs.aoutJeudi
+		elif day=='vendredi':
+			result = reqs.aoutVendredi
+		elif day=='samedi':
+			result = reqs.aoutSamedi
+		else :
+			result = reqs.aoutDimanche
+	elif month[0]== 'septembre' :
+		if day=='lundi':
+			result = reqs.sepLundi
+		elif day=='mardi':
+			result = reqs.sepMardi
+		elif day=='mercredi':
+			result = reqs.sepMercredi
+		elif day=='jeudi':
+			result = reqs.sepJeudi
+		elif day=='vendredi':
+			result = reqs.sepVendredi
+		elif day=='samedi':
+			result = reqs.sepSamedi
+		else :
+			result = reqs.sepDimanche
+	elif month[0]== 'octobre' :
+		if day=='lundi':
+			result = reqs.octLundi
+		elif day=='mardi':
+			result = reqs.octMardi
+		elif day=='mercredi':
+			result = reqs.octMercredi
+		elif day=='jeudi':
+			result = reqs.octJeudi
+		elif day=='vendredi':
+			result = reqs.octVendredi
+		elif day=='samedi':
+			result = reqs.octSamedi
+		else :
+			result = reqs.octDimanche
+	elif month[0]== 'novembre' :
+		if day=='lundi':
+			result = reqs.novLundi
+		elif day=='mardi':
+			result = reqs.novMardi
+		elif day=='mercredi':
+			result = reqs.novMercredi
+		elif day=='jeudi':
+			result = reqs.novJeudi
+		elif day=='vendredi':
+			result = reqs.novVendredi
+		elif day=='samedi':
+			result = reqs.novSamedi
+		else :
+			result = reqs.novDimanche
+	else :
+		if day=='lundi':
+			result = reqs.decLundi
+		elif day=='mardi':
+			result = reqs.decMardi
+		elif day=='mercredi':
+			result = reqs.decMercredi
+		elif day=='jeudi':
+			result = reqs.decJeudi
+		elif day=='vendredi':
+			result = reqs.decvendredi
+		elif day=='samedi':
+			result = reqs.decSamedi
+		else :
+			result = reqs.decDimanche
+
+
+	return result
