@@ -1,5 +1,5 @@
 restaurant = 'Select * from Business where name = "?n"'
-restaurantNameAlmost = 'select business_id, name, address, city, state, postal_code, latitude, longitude, stars,  image_id, id_new from Business NATURAL JOIN image where name like "%?key%"'
+restaurantNameAlmost = 'select business_id, name, address, city, state, postal_code, latitude, longitude, stars,  image_id, id_new, categories from Business NATURAL JOIN image where name like "%?key%"'
 
 countRestaurantNameAlmost = 'select count(*) from Business where name like "%?key%"'
 
@@ -31,7 +31,7 @@ categories = ' select * from Business where Alcohol = 1 and NoiseLevel = 2 and R
 
 perso = 'select * from Business'
 
-reduceRestaurantBis = 'select b.business_id, name, address, city, state, postal_code, latitude, longitude, stars, i.image_id, b.id_new from Business b NATURAL JOIN image i'
+reduceRestaurantBis = 'select b.business_id, name, address, city, state, postal_code, latitude, longitude, stars, i.image_id, b.id_new, b.categories from Business b NATURAL JOIN image i'
 
 reduceRestaurant = 'select business_id, name, address, city, state, postal_code, latitude, longitude, stars from Business'
 
