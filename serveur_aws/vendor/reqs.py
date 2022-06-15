@@ -23,7 +23,7 @@ restauVille = 'select * from Business where city = "?n"'
 
 restaualcoholterrasse = 'select * from Business where Alcohol = 1 and OutdoorSeating = 1 and city = "?n"'
 
-verifyLoginPw = 'select user_id, name, review_count, id_new from Users u where u.identifiant = "?e" and u.password = "?p"'
+verifyLoginPw = 'select user_id, password, name, review_count, id_new from Users u where u.identifiant = "?e"'
 
 getCloserRestaurants = 'select b.business_id, b.name, b.address, b.city, b.state, b.postal_code, b.latitude, b.longitude, b.stars, image_id, b.id_new, b.categories, b.RestaurantsPriceRange2, ST_Distance_Sphere(point(?long, ?lat),point(b.longitude,b.latitude)) as distance from Business b natural join image order by distance limit ?nb'
 
