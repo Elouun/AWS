@@ -386,56 +386,6 @@ def getCloserRestaurant() :
 
 	return json.dumps(d)
 
-@app.route('/TendMonth/{name}')
-def TendMonth(name):
-
-    if name=='janvier' :
-        result=reqs.Janvier
-    elif name=='fevrier' :
-        result=reqs.Fevrier
-    elif name=='mars' : 
-        result=reqs.Mars 
-    elif name=='avril' : 
-        result=reqs.Avril
-    elif name=='mai' : 
-        result=reqs.Mai
-    elif name=='juin' : 
-        result=reqs.Juin
-    elif name=='juillet' : 
-        result=reqs.Juillet
-    elif name=='aout' : 
-        result=reqs.Aout
-    elif name=='septembre' : 
-        result=reqs.Septembre
-    elif name=='octobre' : 
-        result=reqs.Octobre
-    elif name=='novembre' : 
-        result=reqs.Novembre
-    else : 
-        result=reqs.Decembre
-        
-    return result
-
-@app.route('/TendDay/{name}')
-def TendDay(name):
-
-    if name=='lundi' :
-        result=reqs.Lundi
-    elif name=='mardi' :
-        result=reqs.Mardi
-    elif name=='mercredi' : 
-        result=reqs.Mercredi 
-    elif name=='jeudi' : 
-        result=reqs.Jeudi
-    elif name=='vendredi' : 
-        result=reqs.Vendredi
-    elif name=='samedi' : 
-        result=reqs.Samedi
-    elif name=='dimanche' : 
-        result=reqs.Dimanche
-
-    return result
-
 @app.route('/verifyUsernamePassword/{id}')
 def verifiyUsernamePassword(id) :
 	
