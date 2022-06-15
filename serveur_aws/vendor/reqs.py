@@ -37,40 +37,171 @@ reduceRestaurant = 'select business_id, name, address, city, state, postal_code,
 
 statistiques = 'SELECT count(u.user_id) as nb_user FROM Users u UNION SELECT count(b.business_id) as nb_restau FROM Business b UNION SELECT count(c.business_id) as nb_reviews from Reviews c where date > SUBDATE(now(), INTERVAL 31 DAY)'
 
-Janvier="[Japanese, Ramen], [Alcohol, Upscale], [Alcohol, American (New), Breakfast & Brunch, Classy], [Classy, Upscale], [Alcohol, Tapas/Small Plates], [Japanese, Trendy]"
+janLundi='[ Alcohol ,  Sandwiches ], [ Classy ,  Hipster ], [ Alcohol ,  Cajun/Creole ], [ American (Traditional) ,  Trendy ], [ American (New) ,  Burgers ], [ Classy ,  Romantic ], [ American (New) ,  Seafood ], [ Alcohol ,  Intimate ], [ Alcohol ,  Burgers ], [ Alcohol ,  Upscale ], [ American (Traditional) ,  Seafood ], [ Alcohol ,  Romantic ], [ Classy ,  Upscale ], [ Alcohol ,  American (New) ,  Breakfast & Brunch ,  Classy ]'
  
-Fevrier="[Japanese, Ramen], [Alcohol, Upscale], [Alcohol, Intimate], [Alcohol, American (New), Breakfast & Brunch, Classy], [Classy, Upscale], [Alcohol, Romantic], [Classy, Romantic], [Japanese, Trendy]"
+janMardi='[ Japanese ,  Trendy ], [ Alcohol ,  Cajun/Creole ], [ American (Traditional) ,  Trendy ], [ American (New) ,  Burgers ], [ Classy ,  Romantic ], [ American (New) ,  Seafood ], [ Alcohol ,  Intimate ], [ Alcohol ,  Burgers ], [ Alcohol ,  Upscale ], [ American (Traditional) ,  Seafood ], [ Alcohol ,  Romantic ], [ Classy ,  Upscale ], [ Alcohol ,  American (New) ,  Breakfast & Brunch ,  Classy ]'
  
-Mars="[Japanese, Ramen], [Beer, Classy], [Alcohol, American (New), Breakfast & Brunch, Classy], [American (Traditional), Seafood], [Japanese, Trendy]"
+janMercredi='[ Alcohol ,  Vegetarian ], [ Alcohol ,  Cajun/Creole ], [ American (Traditional) ,  Trendy ], [ American (New) ,  Burgers ], [ Classy ,  Romantic ], [ American (New) ,  Seafood ], [ Alcohol ,  Intimate ], [ Alcohol ,  Burgers ], [ Alcohol ,  Upscale ], [ American (Traditional) ,  Seafood ], [ Alcohol ,  Romantic ], [ Classy ,  Upscale ], [ Alcohol ,  American (New) ,  Breakfast & Brunch ,  Classy ]'
  
-Avril="[Alcohol, Chinese], [Alcohol, Salad], [Classy, Hipster], [Pizza, Sandwiches], [Classy, Pizza], [Alcohol, Vegetarian], [Burgers, Fast Food]"
+janJeudi='[ Japanese ,  Ramen ], [ Classy ,  Hipster ], [ Alcohol ,  Cajun/Creole ], [ American (Traditional) ,  Trendy ], [ American (New) ,  Burgers ], [ Classy ,  Romantic ], [ American (New) ,  Seafood ], [ Alcohol ,  Intimate ], [ Alcohol ,  Burgers ], [ Alcohol ,  Upscale ], [ American (Traditional) ,  Seafood ], [ Alcohol ,  Romantic ], [ Classy ,  Upscale ], [ Alcohol ,  American (New) ,  Breakfast & Brunch ,  Classy ]'
  
-Mai="[Alcohol, Salad], [Mexican, Tex-Mex], [Pizza, Sandwiches], [Classy, Pizza], [Alcohol, Vegetarian], [Burgers, Fast Food]"
+janVendredi='[ Japanese ,  Trendy ], [ Alcohol ,  Cajun/Creole ], [ American (Traditional) ,  Trendy ], [ American (New) ,  Burgers ], [ Classy ,  Romantic ], [ American (New) ,  Seafood ], [ Alcohol ,  Intimate ], [ Alcohol ,  Burgers ], [ Alcohol ,  Upscale ], [ American (Traditional) ,  Seafood ], [ Alcohol ,  Romantic ], [ Classy ,  Upscale ], [ Alcohol ,  American (New) ,  Breakfast & Brunch ,  Classy ]'
  
-Juin="[Alcohol, Salad]"
+janSamedi='[ Japanese ,  Ramen ], [ Alcohol ,  Cajun/Creole ], [ American (Traditional) ,  Trendy ], [ American (New) ,  Burgers ], [ Classy ,  Romantic ], [ American (New) ,  Seafood ], [ Alcohol ,  Intimate ], [ Alcohol ,  Burgers ], [ Alcohol ,  Upscale ], [ American (Traditional) ,  Seafood ], [ Alcohol ,  Romantic ], [ Classy ,  Upscale ], [ Alcohol ,  American (New) ,  Breakfast & Brunch ,  Classy ]'
  
-Juillet="[Beer, Classy]"
- 
-Aout="[Classy, Pizza]"
- 
-Septembre="[Alcohol, Upscale], [Beer, Classy], [Classy, Upscale], [Alcohol, Romantic], [American (Traditional), Seafood]"
- 
-Octobre= "[]"
- 
-Novembre="[Japanese, Ramen], [Beer, Classy], [Alcohol, American (New), Breakfast & Brunch, Classy], [Alcohol, Tapas/Small Plates]"
- 
-Decembre="[Alcohol, Upscale], [Alcohol, Salad]"
+janDimanche='[ Alcohol ,  Tapas/Small Plates ], [ Alcohol ,  Cajun/Creole ], [ American (Traditional) ,  Trendy ], [ American (New) ,  Burgers ], [ Classy ,  Romantic ], [ American (New) ,  Seafood ], [ Alcohol ,  Intimate ], [ Alcohol ,  Burgers ], [ Alcohol ,  Upscale ], [ American (Traditional) ,  Seafood ], [ Alcohol ,  Romantic ], [ Classy ,  Upscale ], [ Alcohol ,  American (New) ,  Breakfast & Brunch ,  Classy ]'
 
-Lundi="[Alcohol, American (New), Breakfast & Brunch, Classy]"
+fevLundi='[Japanese, Ramen], [Japanese, Trendy], [Alcohol, Sandwiches], [Classy, Hipster], [Classy, Romantic], [Alcohol, Tapas/Small Plates], [Alcohol, Intimate], [Classy, Desserts], [Alcohol, Upscale], [Alcohol, Romantic], [Classy, Upscale], [Alcohol, American (New), Breakfast & Brunch, Classy]'
  
-Mardi="[Japanese, Trendy]"
+fevMardi='[Japanese, Ramen], [Japanese, Trendy], [Alcohol, Sandwiches], [Classy, Hipster], [Classy, Romantic], [Alcohol, Tapas/Small Plates], [Alcohol, Intimate], [Classy, Desserts], [Alcohol, Upscale], [Alcohol, Romantic], [Classy, Upscale], [Alcohol, American (New), Breakfast & Brunch, Classy]'
  
-Mercredi="[Asian Fusion, Classy]"
+fevMercredi='[Alcohol, Vegetarian], [Japanese, Ramen], [Japanese, Trendy], [Alcohol, Sandwiches], [Classy, Hipster], [Classy, Romantic], [Alcohol, Tapas/Small Plates], [Alcohol, Intimate], [Classy, Desserts], [Alcohol, Upscale], [Alcohol, Romantic], [Classy, Upscale], [Alcohol, American (New), Breakfast & Brunch, Classy]'
  
-Jeudi="[Japanese, Ramen]"
+fevJeudi='[Japanese, Ramen], [Japanese, Trendy], [Alcohol, Sandwiches], [Classy, Hipster], [Classy, Romantic], [Alcohol, Tapas/Small Plates], [Alcohol, Intimate], [Classy, Desserts], [Alcohol, Upscale], [Alcohol, Romantic], [Classy, Upscale], [Alcohol, American (New), Breakfast & Brunch, Classy]'
  
-Vendredi="[Alcohol, Upscale], [Japanese, Trendy]]"
+fevVendredi='[Japanese, Ramen], [Japanese, Trendy], [Alcohol, Sandwiches], [Classy, Hipster], [Classy, Romantic], [Alcohol, Tapas/Small Plates], [Alcohol, Intimate], [Classy, Desserts], [Alcohol, Upscale], [Alcohol, Romantic], [Classy, Upscale], [Alcohol, American (New), Breakfast & Brunch, Classy]'
  
-Samedi="[Japanese, Ramen], [Asian Fusion, Classy]"
+fevSamedi='[Japanese, Ramen], [Japanese, Trendy], [Alcohol, Sandwiches], [Classy, Hipster], [Classy, Romantic], [Alcohol, Tapas/Small Plates], [Alcohol, Intimate], [Classy, Desserts], [Alcohol, Upscale], [Alcohol, Romantic], [Classy, Upscale], [Alcohol, American (New), Breakfast & Brunch, Classy]'
  
-Dimanche="[Alcohol, Upscale], [Alcohol, American (New), Breakfast & Brunch, Classy], [Classy, Upscale], [Alcohol, Tapas/Small Plates]"
+fevDimanche='[Japanese, Ramen], [Japanese, Trendy], [Alcohol, Sandwiches], [Classy, Hipster], [Classy, Romantic], [Alcohol, Tapas/Small Plates], [Alcohol, Intimate], [Classy, Desserts], [Alcohol, Upscale], [Alcohol, Romantic], [Classy, Upscale], [Alcohol, American (New), Breakfast & Brunch, Classy]'
+
+marLundi='[Japanese, Ramen], [Japanese, Trendy], [Alcohol, Sandwiches], [American (Traditional), Trendy], [Classy, Hipster], [Alcohol, Vegetarian], [Alcohol, Burgers], [American (Traditional), Seafood], [Alcohol, American (New), Breakfast & Brunch, Classy]'
+ 
+marMardi='[Japanese, Ramen], [Japanese, Trendy], [Alcohol, Sandwiches], [American (Traditional), Trendy], [Classy, Hipster], [Alcohol, Vegetarian], [Alcohol, Burgers], [American (Traditional), Seafood], [Alcohol, American (New), Breakfast & Brunch, Classy]'
+ 
+marMercredi='[Japanese, Ramen], [Japanese, Trendy], [Alcohol, Sandwiches], [American (Traditional), Trendy], [Classy, Hipster], [Alcohol, Vegetarian], [Alcohol, Burgers], [American (Traditional), Seafood], [Alcohol, American (New), Breakfast & Brunch, Classy]'
+ 
+marJeudi='[Japanese, Ramen], [Japanese, Trendy], [Alcohol, Sandwiches], [American (Traditional), Trendy], [Classy, Hipster], [Alcohol, Vegetarian], [Alcohol, Burgers], [American (Traditional), Seafood], [Alcohol, American (New), Breakfast & Brunch, Classy]'
+ 
+marVendredi='[Alcohol, Upscale], [Japanese, Ramen], [Japanese, Trendy], [Alcohol, Sandwiches], [American (Traditional), Trendy], [Classy, Hipster], [Alcohol, Vegetarian], [Alcohol, Burgers], [American (Traditional), Seafood], [Alcohol, American (New), Breakfast & Brunch, Classy]'
+ 
+marSamedi='[Japanese, Ramen], [Japanese, Trendy], [Alcohol, Sandwiches], [American (Traditional), Trendy], [Classy, Hipster], [Alcohol, Vegetarian], [Alcohol, Burgers], [American (Traditional), Seafood], [Alcohol, American (New), Breakfast & Brunch, Classy]'
+ 
+marDimanche='[Alcohol, Tapas/Small Plates], [Alcohol, Upscale], [Classy, Upscale], [Japanese, Ramen], [Japanese, Trendy], [Alcohol, Sandwiches], [American (Traditional), Trendy], [Classy, Hipster], [Alcohol, Vegetarian], [Alcohol, Burgers], [American (Traditional), Seafood], [Alcohol, American (New), Breakfast & Brunch, Classy]'
+
+avrLundi='[Alcohol, Sandwiches], [Alcohol, Burgers], [Alcohol, American (New), Breakfast & Brunch, Classy], [Pizza, Sandwiches], [Alcohol, Chinese], [Classy, Hipster], [Alcohol, Vegetarian], [Burgers, Fast Food]'
+ 
+avrMardi='[Japanese, Trendy], [Pizza, Sandwiches], [Alcohol, Chinese], [Classy, Hipster], [Alcohol, Vegetarian], [Burgers, Fast Food]'
+ 
+avrMercredi='[Pizza, Sandwiches], [Alcohol, Chinese], [Classy, Hipster], [Alcohol, Vegetarian], [Burgers, Fast Food]'
+
+avrJeudi='[Japanese, Ramen], [Pizza, Sandwiches], [Alcohol, Chinese], [Classy, Hipster], [Alcohol, Vegetarian], [Burgers, Fast Food]'
+ 
+avrVendredi='[Japanese, Trendy], [Alcohol, Upscale], [Pizza, Sandwiches], [Alcohol, Chinese], [Classy, Hipster], [Alcohol, Vegetarian], [Burgers, Fast Food]'
+ 
+avrSamedi='[Japanese, Ramen], [Pizza, Sandwiches], [Alcohol, Chinese], [Classy, Hipster], [Alcohol, Vegetarian], [Burgers, Fast Food]'
+
+avrDimanche='[Alcohol, Tapas/Small Plates], [Alcohol, Upscale], [Classy, Upscale], [Alcohol, American (New), Breakfast & Brunch, Classy], [Pizza, Sandwiches], [Alcohol, Chinese], [Classy, Hipster], [Alcohol, Vegetarian], [Burgers, Fast Food]'
+ 
+maiLundi='[Alcohol, Sandwiches], [Classy, Hipster], [Alcohol, Burgers], [Alcohol, American (New), Breakfast & Brunch, Classy], [Pizza, Sandwiches], [Mexican, Tex-Mex], [Alcohol, Vegetarian], [Burgers, Fast Food]'
+ 
+maiMardi='[Japanese, Trendy], [Pizza, Sandwiches], [Mexican, Tex-Mex], [Alcohol, Vegetarian], [Burgers, Fast Food]'
+ 
+maiMercredi='[Pizza, Sandwiches], [Mexican, Tex-Mex], [Alcohol, Vegetarian], [Burgers, Fast Food]'
+ 
+maiJeudi='[Japanese, Ramen], [Classy, Hipster], [Pizza, Sandwiches], [Mexican, Tex-Mex], [Alcohol, Vegetarian], [Burgers, Fast Food]'
+ 
+maiVendredi='[Japanese, Trendy], [Alcohol, Upscale], [Pizza, Sandwiches], [Mexican, Tex-Mex], [Alcohol, Vegetarian], [Burgers, Fast Food]'
+ 
+maiSamedi='[Japanese, Ramen], [Pizza, Sandwiches], [Mexican, Tex-Mex], [Alcohol, Vegetarian], [Burgers, Fast Food]'
+ 
+maiDimanche='[Alcohol, Tapas/Small Plates], [Alcohol, Upscale], [Classy, Upscale], [Alcohol, American (New), Breakfast & Brunch, Classy], [Pizza, Sandwiches], [Mexican, Tex-Mex], [Alcohol, Vegetarian], [Burgers, Fast Food]'
+
+juinLundi='[Alcohol, Sandwiches], [Classy, Hipster], [Alcohol, Burgers], [Alcohol, American (New), Breakfast & Brunch, Classy]'
+ 
+juinMardi='[Japanese, Trendy]'
+ 
+juinMercredi='[Alcohol, Vegetarian]'
+ 
+juinJeudi='[Japanese, Ramen], [Classy, Hipster]'
+ 
+juinVendredi='[Japanese, Trendy], [Alcohol, Upscale]'
+ 
+juinSamedi='[Japanese, Ramen]'
+ 
+juinDimanche='[Alcohol, Tapas/Small Plates], [Alcohol, Upscale], [Classy, Upscale], [Alcohol, American (New), Breakfast & Brunch, Classy]'
+ 
+juilletLundi='[Alcohol, Sandwiches], [Classy, Hipster], [Alcohol, Burgers], [Alcohol, American (New), Breakfast & Brunch, Classy], [Alcohol, Vegetarian]'
+ 
+juilletMardi='[Japanese, Trendy], [Alcohol, Vegetarian]'
+ 
+juilletMercredi='[Alcohol, Vegetarian]'
+ 
+juilletJeudi='[Japanese, Ramen], [Classy, Hipster], [Alcohol, Vegetarian]'
+ 
+juilletVendredi='[Japanese, Trendy], [Alcohol, Upscale], [Alcohol, Vegetarian]'
+ 
+juilletSamedi='[Japanese, Ramen], [Alcohol, Vegetarian]'
+ 
+juilletDimanche='[Alcohol, Tapas/Small Plates], [Alcohol, Upscale], [Classy, Upscale], [Alcohol, American (New), Breakfast & Brunch, Classy], [Alcohol, Vegetarian]'
+ 
+aoutLundi='[Alcohol, Sandwiches], [Classy, Hipster], [Alcohol, Burgers], [Alcohol, American (New), Breakfast & Brunch, Classy]'
+ 
+aoutMardi='[Japanese, Trendy]'
+ 
+aoutMercredi='[Alcohol, Vegetarian]'
+ 
+aoutJeudi='[Japanese, Ramen], [Classy, Hipster]'
+ 
+aoutVendredi='[Japanese, Trendy], [Alcohol, Upscale]'
+ 
+aoutSamedi='[Japanese, Ramen]'
+ 
+aoutDimanche='[Alcohol, Tapas/Small Plates], [Alcohol, Upscale], [Classy, Upscale], [Alcohol, American (New), Breakfast & Brunch, Classy]'
+ 
+sepLundi='[Alcohol, Sandwiches], [Classy, Hipster], [Alcohol, Burgers], [Alcohol, American (New), Breakfast & Brunch, Classy], [Alcohol, Upscale], [American (Traditional), Seafood], [Alcohol, Romantic], [Classy, Upscale]'
+ 
+sepMardi='[Japanese, Trendy], [Alcohol, Upscale], [American (Traditional), Seafood], [Alcohol, Romantic], [Classy, Upscale]'
+ 
+sepMercredi='[Alcohol, Vegetarian], [Alcohol, Upscale], [American (Traditional), Seafood], [Alcohol, Romantic], [Classy, Upscale]'
+ 
+sepJeudi='[Japanese, Ramen], [Classy, Hipster], [Alcohol, Upscale], [American (Traditional), Seafood], [Alcohol, Romantic], [Classy, Upscale]'
+ 
+sepVendredi='[Japanese, Trendy], [Alcohol, Upscale], [American (Traditional), Seafood], [Alcohol, Romantic], [Classy, Upscale]'
+ 
+sepSamedi='[Japanese, Ramen], [Alcohol, Upscale], [American (Traditional), Seafood], [Alcohol, Romantic], [Classy, Upscale]'
+ 
+sepDimanche='[Alcohol, Tapas/Small Plates], [Alcohol, American (New), Breakfast & Brunch, Classy], [Alcohol, Upscale], [American (Traditional), Seafood], [Alcohol, Romantic], [Classy, Upscale]'
+ 
+octLundi='[Alcohol, Sandwiches], [Classy, Hipster], [Alcohol, Burgers], [Alcohol, American (New), Breakfast & Brunch, Classy]'
+ 
+octMardi='[Japanese, Trendy]'
+ 
+octMercredi='[Alcohol, Vegetarian]'
+ 
+octJeudi='[Japanese, Ramen], [Classy, Hipster]'
+ 
+octVendredi='[Japanese, Trendy], [Alcohol, Upscale]'
+ 
+octSamedi='[Japanese, Ramen]'
+ 
+octDimanche='[Alcohol, Tapas/Small Plates], [Alcohol, Upscale], [Classy, Upscale], [Alcohol, American (New), Breakfast & Brunch, Classy]'
+
+novLundi='[Alcohol, Sandwiches], [Classy, Hipster], [Japanese, Ramen], [Alcohol, Tapas/Small Plates], [Classy, Desserts], [Alcohol, Burgers], [Alcohol, American (New), Breakfast & Brunch, Classy]'
+ 
+novMardi='[Japanese, Trendy], [Japanese, Ramen], [Alcohol, Tapas/Small Plates], [Classy, Desserts], [Alcohol, Burgers], [Alcohol, American (New), Breakfast & Brunch, Classy]'
+ 
+novMercredi='[Alcohol, Vegetarian], [Japanese, Ramen], [Alcohol, Tapas/Small Plates], [Classy, Desserts], [Alcohol, Burgers], [Alcohol, American (New), Breakfast & Brunch, Classy]'
+ 
+novJeudi='[Classy, Hipster], [Japanese, Ramen], [Alcohol, Tapas/Small Plates], [Classy, Desserts], [Alcohol, Burgers], [Alcohol, American (New), Breakfast & Brunch, Classy]'
+ 
+novVendredi='[Japanese, Trendy], [Alcohol, Upscale], [Japanese, Ramen], [Alcohol, Tapas/Small Plates], [Classy, Desserts], [Alcohol, Burgers], [Alcohol, American (New), Breakfast & Brunch, Classy]'
+ 
+novSamedi='[Japanese, Ramen], [Alcohol, Tapas/Small Plates], [Classy, Desserts], [Alcohol, Burgers], [Alcohol, American (New), Breakfast & Brunch, Classy]'
+
+novDimanche='[Alcohol, Upscale], [Classy, Upscale], [Japanese, Ramen], [Alcohol, Tapas/Small Plates], [Classy, Desserts], [Alcohol, Burgers], [Alcohol, American (New), Breakfast & Brunch, Classy]'
+
+decLundi='[Alcohol, Sandwiches], [Classy, Hipster], [Alcohol, Burgers], [Alcohol, American (New), Breakfast & Brunch, Classy], [Alcohol, Upscale]'
+ 
+decMardi='[Japanese, Trendy], [Alcohol, Upscale]'
+ 
+decMercredi='[Alcohol, Vegetarian], [Alcohol, Upscale]'
+ 
+decJeudi='[Japanese, Ramen], [Classy, Hipster], [Alcohol, Upscale]'
+ 
+decVendredi='[Japanese, Trendy], [Alcohol, Upscale]'
+ 
+decSamedi='[Japanese, Ramen], [Alcohol, Upscale]'
+ 
+decDimanche='[Alcohol, Tapas/Small Plates], [Alcohol, Upscale], [Classy, Upscale], [Alcohol, American (New), Breakfast & Brunch, Classy]'
+ 
