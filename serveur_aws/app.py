@@ -29,6 +29,8 @@ def addReviews(param):
 	
 	tab = param.split(',')
 	
+	user_id = tab[1]
+	
 	res = [1]
 	while(len(res) != 0):
 		nb = rd.randint(20, 1000000000)
@@ -43,9 +45,11 @@ def addReviews(param):
 	
 	req = re.sub("%20", " ", req)
 	
-	print(req)
+	#print(req)
 	
 	bdd.insert(req, conn)
+	
+	bdd.insert("UPDATE Users SET review_count = review_count + 1 WHERE user_id = '"+user_id+"';", conn)
 	
 	return 'ok'
 	
