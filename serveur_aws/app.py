@@ -122,6 +122,7 @@ def getCategoriesOr(param):
 		for i in range(len(res)):
 			
 			bid = res[i].replace("\n", "")
+			print(bid)
 			count = list(ids.keys())[list(ids.values()).index(bid)]
 			final[i] = d[count]
 			
