@@ -417,7 +417,11 @@ def get_user(user):
 	
 	bdd.insert(req, conn)
 	
-	return 'ok'
+	res = bdd.request(reqs.userID.replace("?n", str(id)), conn)
+	
+	return res[0]
+
+	
 
 @app.route('/getReco')
 def get_user():
