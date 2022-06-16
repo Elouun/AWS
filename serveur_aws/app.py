@@ -421,7 +421,7 @@ def get_user(user):
 	
 	res = bdd.request(reqs.userID.replace("?n", str(id)), conn)
 	
-	return str(res[0])
+	return res[0][0]
 
 	
 
