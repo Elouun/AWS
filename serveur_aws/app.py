@@ -87,7 +87,7 @@ def getCategoriesOr(param):
 			cpt = cpt+1
 
 		req = reqs.reduceRestaurantBis
-		reqfinal = req + add 
+		reqfinal = req + add + " limit 30"
 		res = bdd.request(reqfinal, conn)
 		
 		ids = {}
