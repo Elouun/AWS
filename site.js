@@ -74,7 +74,7 @@ const requestListener = async function (req, res) {
 			    break;
 
 			case "/recommandation_french": 
-				if (req.url.split('resto=')[1] === undefined) {
+				if (req.url.split('reco=')[1] === undefined) {
 					res.writeHead(404);
 					res.end("Missing param ");	
 				}
@@ -92,7 +92,7 @@ const requestListener = async function (req, res) {
 				
 			
 			case "/recommandation_indian":
-				if (req.url.split('resto=')[1] === undefined) {
+				if (req.url.split('reco=')[1] === undefined) {
 					res.writeHead(404);
 					res.end("Missing param ");	
 				}
