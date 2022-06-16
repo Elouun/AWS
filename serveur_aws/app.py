@@ -399,7 +399,7 @@ def verifiyUsernamePassword(id) :
 	count = 0
 	for row in res:
 		#user_id, password, name, review_count, id_new from
-		d[count] = {"user_id":row[0],"password":row[1],"name":row[2],"review_count":row[3],"id_new":row[4]}
+		d[count] = {"user_id":row[0],"password":row[1],"name":row[2],"review_count":row[3],"id_new":row[4], "favorite_categories":row[5]}
 		count += 1
 
 	return  json.dumps(d)
