@@ -113,7 +113,7 @@ def getCategoriesOr(param):
 		res = bdd.reco(ids_list[:-1], model)
 		
 		#print("result here : ")
-		#print(res)
+		print(res)
 		
 		res = res.split(',')
 		
