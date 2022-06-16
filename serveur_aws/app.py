@@ -49,7 +49,7 @@ def addReviews(param):
 	
 	bdd.insert(req, conn)
 	
-	req2 = "UPDATE Users SET review_count = review_count + 1 WHERE user_id = '"+user_id+"';"
+	req2 = "UPDATE Users SET review_count = review_count + 1 WHERE user_id = "+user_id+";"
 	
 	print(req2)
 	
