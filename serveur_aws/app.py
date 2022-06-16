@@ -415,6 +415,8 @@ def get_user(user):
 	user = "'"+str(id)+"'," + user + ',' + str(id) + ',0, 0'
 	req = reqs.addUser.replace("?v", user)
 	
+	print(req)
+	
 	bdd.insert(req, conn)
 	
 	res = bdd.request(reqs.userID.replace("?n", str(id)), conn)
