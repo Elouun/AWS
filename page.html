@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 
 <head>
-    <title>My Website</title>
+    <title>Site d'aministration Yummy Dvice</title>
+    <meta charset="utf-8">
     <style>
         html {
             margin: 0;
@@ -30,52 +31,120 @@
             font-size: 16px;
         }
     </style>
+    <script src="https://maps.google.com/maps/api/js?key=AIzaSyAN2UVQyW6NkcA_WPwos4E7cpYuVbDKV9I" type="text/javascript"></script>
+        <script async type="text/javascript">
+            // On initialise la latitude et la longitude de Paris (centre de la carte)
+            var lat = 48.852969;
+            var lon = 2.349903;
+            var map = null;
+            // Fonction d'initialisation de la carte
+            function initMap() {
+                // Créer l'objet "map" et l'insèrer dans l'élément HTML qui a l'ID "map"
+                map = new google.maps.Map(document.getElementById("map"), {
+                    // Nous plaçons le centre de la carte avec les coordonnées ci-dessus
+                    center: new google.maps.LatLng(lat, lon), 
+                    // Nous définissons le zoom par défaut
+                    zoom: 11, 
+                    // Nous définissons le type de carte (ici carte routière)
+                    mapTypeId: google.maps.MapTypeId.ROADMAP, 
+                    // Nous activons les options de contrôle de la carte (plan, satellite...)
+                    mapTypeControl: true,
+                    // Nous désactivons la roulette de souris
+                    //scrollwheel: false, 
+                    mapTypeControlOptions: {
+                        // Cette option sert à définir comment les options se placent
+                        style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR 
+                    },
+                    // Activation des options de navigation dans la carte (zoom...)
+                    navigationControl: true, 
+                    navigationControlOptions: {
+                        // Comment ces options doivent-elles s'afficher
+                        style: google.maps.NavigationControlStyle.ZOOM_PAN 
+                    }
+                });
+            }
+            
+
+            window.onload = function(){
+                // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
+                initMap(); 
+
+            //CHECKPOINT_1
+
+            new google.maps.Marker({
+                position: new google.maps.LatLng(-34.397, 150.644),
+                map: map,
+                icon:{
+                    fillColor: '#00FFFF'
+                },
+                label: {text: " 1 ", color: "white"}
+            });
+
+
+            };
+        </script>
 </head>
 <body>
     <div style="
-        display: flex;flex-direction: row;
+        display: flex;
+        flex-direction: row;
         justify-content: space-between;
         height: 100%">
         <div style="
             display: flex;
             flex-direction: column;
+            width:800px;
             margin-left: 3%">
             <h1>Serveur log</h1>
             <h2>Requete serveur </h2>
             <form action="/serve" method="get">
                 <div>
                     <label for="resto">Voir un restaurant</label>
-                    <input name="resto" id="resto" value="Sister Honeys">
+                    <input name="resto" id="resto" value="Minas Pizza" placeholder="Minas Pizza">
                 </div>
                 <div>
                     <button>Recherche</button>
                 </div>
             </form>
             <h2>Recommandation </h2>
-            <form action="/recommandation_french" method="get">
+            <form action="/recommandation_comparaison" method="get">
                 <div>
-                    <label for="reco">Voir une recommandation</label>
-                    <input name="reco" id="reco" value="1,2,3,4,5,6,7,8,9,10_1,1,1,1,1,1,1,1,1,1">
+                    <label for="reco">Comparaison recommandation</label>
+                    <input name="reco" id="reco" value="5609,7400,30154,18009,25577,27964,27424,12058,34077,21678,19957,16009,10841,6336,13907,6274,4644,11413,26637,21938,16887,33868,1962,22312,7399,8682,28268,144,6888,23588,4457,26276,31018,1426,21778,6255,5966,22589,15082,1816,32373,23374,15767,19051,14352,30611,12978,7019,28361,20333,10070,8662,25107,2324,26446,22646,1012,14016,14169,5020,23498,15316,32851,7282,2308,30007,28611,20069,26866,9180,27978,31872,11168,9497,34119,29295,27746,27008,32067,15623,22631,31760,18550,25878,27259,23743,34109,31186,3026,17069,28213,3554,9049,3185,11094,3759,19138,14711,9830,30513,28310,34388,3869,6912,11165,5655,25475,20073,13087,25020,7521,13549,22000,28210,31416,12404,29462,32115,3491,23371,19867,10093,7842,10330,32847,26996,29566,8498,4313,3646,7254,19795,14550,27312,8342,29413,10981,27130,4420,851,4830,24306,26727,26289,28444,9850,24843,11865,32665,7874,21135,10468,6502,28726,21542,22575,8508,2254,14507,30157,13528,4593,524,2082,33083,28443,28364,30662,13778,17510,33650,4658,21415,16026,22864,19678,23560,10748,16988,21230,30648,14509,11484,26038,21094,30225,29283,179,24636,15884,27503,6524,2523,28691,16301,4133,25989,14264,30461,15966,27805,26851,17957,5039,1551,30221,5478,24884,18730,14265,10931,21969,4965,2544,993,12298,2216,18247,8556,21413,30830,5078,23256,28493,31185,33755,6986,28721,14840,5006,22205,12214,25082,14962,16335,21885,30597,14502,215,17922,27556,30812,19532,24200,8949,27878,23012,2039,8515,26478,29261,11688,766,4635,7081,1079,21801,27452,17941,34428,14019,22857,31708,14724,18537,1748,33640,31864,9099,9153,11981,29119,22136,28,21876,24741,12880,19364,12059,24524_2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2">
                 </div>
                 <div>
                     <button>Recherche</button>
                 </div>
-            </form>        
-            <h2>Commande</h2>
-            <p>Commande <b style="color: #635e4e">%%CMD_1_NAME%%</b> resultat : </p>
-            <p>%%CMD_1_RES%%</p>
+            </form>
+
+
+        <div id="map" style="width: 100%;height: 100%"></div>
+
+            
         </div>
         <div style="
             display: flex;
             flex-direction: column;
-            padding: 45px 45px 0 50px;
+            padding: 30px 30px 0 30px;
             background-color: #d7d1d18c;
             ">
-
             <div style="
                 border: solid black;
                 border-width: 2px;
-                width: 550px;
+                width: 450px;
+                height: 180px;
+                padding-left: 7px">
+                <h2>Commande</h2>
+                <p>Commande <b style="color: #635e4e">%%CMD_1_NAME%%</b> resultat : </p>
+                <p>%%CMD_1_RES%%</p>
+
+
+            </div>
+            <div style="
+                border: solid black;
+                border-width: 2px;
+                margin-top: 20px;
+                width: 450px;
                 height: 180px;
                 padding-left: 7px">
                 <h2>
@@ -91,7 +160,7 @@
                 border: solid black;
                 border-width: 2px;
                 margin-top: 20px;
-                width: 550px;
+                width: 450px;
                 height: 330px;
                 padding-left: 7px">
 
@@ -106,6 +175,7 @@
             </div>
         </div>
     </div>
+
     
 </body>
 

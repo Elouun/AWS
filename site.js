@@ -53,9 +53,9 @@ function commande_aws(cmd){
 
 
 const requestListener = async function (req, res) {   
-	if (req.url != "/favicon.ico"){
+	if (req.url != "/favicon.ico" && req.url != "/index.js"){
 		let param = "";
-		
+		console.log("requete du site:")
 		console.log(req.url.replace(/[?].*/gi, ''));
 
 		switch (req.url.replace(/[?].*/gi, '')) {
@@ -87,8 +87,9 @@ const requestListener = async function (req, res) {
 					res.setHeader("Content-Type", "application/json");
 					res.writeHead(200);
 					res.end(result_reco);
-					break;
 				}
+				break;
+
 				
 			
 			case "/recommandation_indian":
@@ -100,14 +101,13 @@ const requestListener = async function (req, res) {
 					param = req.url.split('reco=')[1].replace(/%2C/gi, ',');
 					console.log(param);
 					let result_reco_indian = await commande_aws("python3 ./model/testModelIndian.py " + param + " 2> err.log");
+				
+				
 					res.setHeader("Content-Type", "application/json");
 					res.writeHead(200);
 					res.end(result_reco_indian);
-					break;
-				
 				}
-				
-				
+				break;
 			
 
 			case "/image": 
@@ -133,6 +133,19 @@ const requestListener = async function (req, res) {
 				}	
 				break;	    		
 
+			case "/recommandation_comparaison": 
+				if (req.url.split('reco=')[1] === undefined) {
+					res.writeHead(404);
+					res.end("Missing param ");	
+				}
+				else {
+					param = req.url.split('reco=')[1].replace(/%2C/gi, ',');
+					console.log(param);
+					let result_French = await commande_aws("python3 ./model/testModelFrench.py " + param + " 2> err.log");
+					let result_Indian = await commande_aws("python3 ./model/testModelIndian.py " + param + " 2> err.log");
+
+
+				}
 
 			case "/":
 				const cmd_url = "cd /home/pi/AWS/serveur_aws && chalice url"
