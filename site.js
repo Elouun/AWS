@@ -152,7 +152,7 @@ const requestListener = async function (req, res) {
 
 				console.log(result_Indian);
 				let result_Marker_html = "";
-				let result_Table_html ="";
+				let result_Table_html ="<table>  <thead> <tr>  <th colspan='2'>Tableau de  comparaison</th>  </tr>  </thead><tbody>  <tr>  <td>Indian</td>   <td>French</td>  </tr>";
 
 				Object.keys(result_French).forEach(function(key) {
   					result_Marker_html = result_Marker_html + "   " + marker
@@ -182,7 +182,7 @@ const requestListener = async function (req, res) {
 
 
 				indexFile = indexFile.toString().replace( /\/\/CHECKPOINT_1/, result_Marker_html)
-				indexFile = indexFile.toString().replace( /<!--CHECKPOINT_2-->/, result_Table_html)
+				indexFile = indexFile.toString().replace( /<!--CHECKPOINT_2-->/, result_Table_html + "</tbody> </table>")
 
 
 	
