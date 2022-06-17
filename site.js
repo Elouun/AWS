@@ -147,6 +147,19 @@ const requestListener = async function (req, res) {
 					let result_French = await commande_aws("python3 ./model/testModelFrench.py " + param + " 2> err.log");
 					let result_Indian = await commande_aws("python3 ./model/testModelIndian.py " + param + " 2> err.log");
 
+
+					let trunk_resultFr = result_French.split(','); 
+					let trunk_resultIn = result_Indian.split(','); 
+
+					if (trunk_result.lenght > 150) {
+						result_French = ""+trunk_resultFr[0]
+						result_Indian = ""+trunk_resultIn[0]
+						for (let i=1;i<150;i++) {
+  							result_French = result_French + ","+ trunk_resultFr[i];
+    						result_Indian = result_Indian + ","+ trunk_resultIn[i];
+						}
+					}
+
 					const cmd_dataReco = "curl https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getDataBusiness/" + result_French+" --silent"
 					let result_dataReco = await commande_aws(cmd_dataReco);
 					cmd_dataReco = JSON.parse(cmd_dataReco);
