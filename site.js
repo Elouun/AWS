@@ -152,7 +152,10 @@ const requestListener = async function (req, res) {
 
 				console.log(result_Indian);
 
-				console.log(result_French.length);
+
+				Object.keys(result_Indian).forEach(function(key) {
+  					console.log('Key : ' + key + ', Value : ' + result_Indian[key])
+				})
 
 
 				/*
