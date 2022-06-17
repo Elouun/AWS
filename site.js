@@ -2,8 +2,8 @@ const http = require("http");
 const fs = require('fs');
 const fsp = require('fs').promises;
 
-const host = '192.168.1.60';
-//const host = 'localhost';
+//const host = '192.168.1.60';
+const host = 'localhost';
 
 const port = 8000;
 const axios = require('axios');
@@ -152,9 +152,9 @@ const requestListener = async function (req, res) {
 
 				console.log(result_Indian);
 				let result_Marker_html = "";
+				let result_Table_html ="";
 
 				Object.keys(result_French).forEach(function(key) {
-  					console.log('Key : ' + key + ', Value : ' + result_French[key]);
   					result_Marker_html = result_Marker_html + "   " + marker
 												.replace(/\$text/,result_French[key]['id_new'])
 												.replace(/\$color/,'green')
@@ -164,7 +164,6 @@ const requestListener = async function (req, res) {
 				})
 
 				Object.keys(result_Indian).forEach(function(key) {
-  					console.log('Key : ' + key + ', Value : ' + result_Indian[key]);
   			  		result_Marker_html = result_Marker_html + "   " + marker
 												.replace(/\$text/,result_Indian[key]['id_new'])
 												.replace(/\$color/,'blue')
@@ -174,23 +173,18 @@ const requestListener = async function (req, res) {
 				
 				})
 
+
+				Object.keys(result_Indian).forEach(function(key) {
+  			  		result_Table_html = result_Table_html + "<tr> <td>"+result_Indian[key]["name"]+"</td> <td>"+result_French[key]["name"]+"</td> </tr>"
+												
+				
+				})
+
+
 				indexFile = indexFile.toString().replace( /\/\/CHECKPOINT_1/, result_Marker_html)
 
 
-				/*
-				
-				
-				for (let i = 0 ; i < result_dataReco.length ; i++){
-
-
-					
-				}
-				console.log(result_Marker_html);
-
-
-				
-				*/
-				
+	
 
 			case "/":
 				const cmd_url = "cd /home/pi/AWS/serveur_aws && chalice url"
