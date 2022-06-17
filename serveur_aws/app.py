@@ -26,7 +26,7 @@ def save_data():
 
 @app.route('/getDataBusiness/{param}')
 def getDataBusiness(param):
-	req = reqs.countRestaurantNameAlmost.replace("?n", param)
+	req = reqs.databusiness.replace("?n", param)
 	res = bdd.request(req, conn)
 	
 	return res
