@@ -205,6 +205,7 @@ const requestListener = async function (req, res) {
 
 			case "/":
 				if (req.url.replace(/[?].*/gi, '') != "/recommandation_comparaison" ) {
+					console.log("all resto");
 					let result_all = await commande_aws("curl https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getLoca/ --silent");
 					result_all = JSON.parse(result_all);
 					marker_all = "";
