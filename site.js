@@ -16,7 +16,7 @@ let indexFile;
 let pageHtml;
 
 
-let marker = " new google.maps.Marker({ position: new google.maps.LatLng($lat, $lng),    map: map,    icon:{  url: 'http://maps.google.com/mapfiles/ms/icons/$color-dot.png'  },  label: {text: ' $text ', color: 'black'} });" ;
+let marker = " new google.maps.Marker({ position: new google.maps.LatLng($lat, $lng),    map: map,    icon:{  url: 'http://maps.google.com/mapfiles/ms/icons/$color-dot.png'  },  label: {text: ' $text ', color: 'black'} }).addListener('click', () => { new google.maps.InfoWindow({  content: '<div>$content</div> }).open({ map,   shouldFocus: false,   });  });;" ;
 
 
 function onError(err) {
@@ -152,7 +152,7 @@ const requestListener = async function (req, res) {
 				Object.keys(result_French).forEach(function(key) {
   					result_Marker_html = result_Marker_html + "   " + marker
 												.replace(/\$text/,result_French[key]['id_new'])
-												.replace(/\$color/,'green')
+												.replace(/\$color/,'red')
 											   	.replace(/\$lat/,result_French[key]['latitude'])
 											   	.replace(/\$lng/,result_French[key]['longitude']);
 				
@@ -161,7 +161,7 @@ const requestListener = async function (req, res) {
 				Object.keys(result_Indian).forEach(function(key) {
   			  		result_Marker_html = result_Marker_html + "   " + marker
 												.replace(/\$text/,result_Indian[key]['id_new'])
-												.replace(/\$color/,'blue')
+												.replace(/\$color/,'yellow')
 											   	.replace(/\$lat/,result_Indian[key]['latitude'])
 											   	.replace(/\$lng/,result_Indian[key]['longitude']);
 				
@@ -211,7 +211,7 @@ const requestListener = async function (req, res) {
 					marker_all = "";
 					for (let i=0 ; i < result_all.length ; i++){
 						marker_all = marker_all + "   " + marker
-												.replace(/\$text/,result_all[i][0])
+												.replace(/\$text/,"")
 												.replace(/\$color/,'red')
 											   	.replace(/\$lat/,result_all[i][1])
 											   	.replace(/\$lng/,result_all[i][2]);
