@@ -152,22 +152,26 @@ const requestListener = async function (req, res) {
 
 				console.log(result_Indian);
 
-					/*
-					let result_Marker_html = "";
-					for (let i = 0 ; i < result_dataReco.length ; i++){
+				console.log(result_French.length);
 
 
-						result_Marker_html = result_Marker_html + "   " + marker
-													.replace(/\$text/,result_dataReco[i][6])
-												   	.replace(/\$lat/,result_dataReco[i][2])
-												   	.replace(/\$lng/,result_dataReco[i][3])
-					}
-					console.log(result_Marker_html);
+				/*
+				
+				let result_Marker_html = "";
+				for (let i = 0 ; i < result_dataReco.length ; i++){
 
 
-					indexFile = indexFile.toString().replace( /\/\/CHECKPOINT_1/, result_Marker_html)
-					*/
+					result_Marker_html = result_Marker_html + "   " + marker
+												.replace(/\$text/,result_dataReco[i][6])
+											   	.replace(/\$lat/,result_dataReco[i][2])
+											   	.replace(/\$lng/,result_dataReco[i][3])
+				}
+				console.log(result_Marker_html);
 
+
+				indexFile = indexFile.toString().replace( /\/\/CHECKPOINT_1/, result_Marker_html)
+				
+				*/
 				
 
 			case "/":
