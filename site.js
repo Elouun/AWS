@@ -146,68 +146,33 @@ const requestListener = async function (req, res) {
 				else {
 					param = req.url.split('reco=')[1].replace(/%2C/gi, ',');
 					console.log(param);
-					let result_French = await commande_aws("python3 ./model/testModelFrench.py " + param + " 2> err.log");
-					let result_Indian = await commande_aws("python3 ./model/testModelIndian.py " + param + " 2> err.log");
-
-
-					let trunk_resultFr = result_French.split(','); 
-					let trunk_resultIn = result_Indian.split(','); 
-					console.log(trunk_resultFr.length);
-					const maxElt = 20;
-					var common = [];
-					if (trunk_resultFr.length > maxElt) {
-						result_French = ""+trunk_resultFr[0]
-						result_Indian = ""+trunk_resultIn[0]
-						
-						for (let i=1;i<maxElt;i++) {
-  							result_French = result_French + ","+ trunk_resultFr[i];
-    						result_Indian = result_Indian + ","+ trunk_resultIn[i];
-						}
-
-						for (let i=1;i<maxElt;i++) {
-
-							if(trunk_resultIn.indexOf(trunk_resultFr[i]) >= 0 && trunk_resultIn.indexOf(trunk_resultFr[i]) < maxElt ){
-								common.push(trunk_resultFr[i]);
-							}
-						}
+					let result_French = await commande_aws("curl https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getCategoriesOr/French,Indian,usr_50854_french --silent");
+					let result_Indian = await commande_aws("curl https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getCategoriesOr/French,Indian,usr_50854_indian --silent");
 
 
 
-					}
-					else {
-						for (let i=1;i<trunk_resultFr.length;i++) {
+					result_French = JSON.parse(result_French);
+					result_Indian = JSON.parse(result_Indian);
 
-							if(trunk_resultIn.indexOf(trunk_resultFr[i]) >= 0 && trunk_resultIn.indexOf(trunk_resultFr[i]) < maxElt ){
-								common.push(trunk_resultFr[i]);
-							}
-						}
+					console.log(result_French);
 
-					}
+					console.log(result_Indian);
 
-
-
-
-					const cmd_dataReco = "curl https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getDataBusiness/" + result_French+" --silent"
-					let result_dataReco = await commande_aws(cmd_dataReco);
-					result_dataReco = JSON.parse(result_dataReco);
-
-					console.log(result_dataReco);
-					console.log(result_dataReco.length);
-					console.log(common);
-
+					/*
 					let result_Marker_html = "";
 					for (let i = 0 ; i < result_dataReco.length ; i++){
 
 
-						result_Marker_html = result_Marker_html + "   " + marker.replace(/\$text/,result_dataReco[i][6])
-												   .replace(/\$lat/,result_dataReco[i][2])
-												   .replace(/\$lng/,result_dataReco[i][3])
+						result_Marker_html = result_Marker_html + "   " + marker
+													.replace(/\$text/,result_dataReco[i][6])
+												   	.replace(/\$lat/,result_dataReco[i][2])
+												   	.replace(/\$lng/,result_dataReco[i][3])
 					}
 					console.log(result_Marker_html);
 
 
 					indexFile = indexFile.toString().replace( /\/\/CHECKPOINT_1/, result_Marker_html)
-
+					*/
 
 				}
 
