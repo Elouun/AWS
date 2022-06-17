@@ -30,6 +30,24 @@
             margin-left: 15px;
             font-size: 16px;
         }
+        table,
+        td {
+            border: 1px solid #333;
+            margin-left: 10px;
+        }
+
+        thead,
+        tfoot {
+            background-color: #333;
+            color: #fff;
+        }
+        .vert  {
+            background-color: green;
+        }
+        .bleu  {
+            background-color: blue;
+        }
+
     </style>
     <script src="https://maps.google.com/maps/api/js?key=AIzaSyAN2UVQyW6NkcA_WPwos4E7cpYuVbDKV9I" type="text/javascript"></script>
         <script async type="text/javascript">
@@ -110,8 +128,34 @@
                 </div>
             </form>
 
+        <div style="
+            display: flex;
+            padding-bottom: 5px;
+            height: 100%"> 
+            <div id="map" style="width: 100%;height: 100%"></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Tableau de comparaison</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Indian</td>
+                        <td>French</td>
+                    </tr>
+                    <tr>
+                        <td class="vert">2050</td>
+                        <td class="bleu">13486</td>
+                    </tr>
 
-        <div id="map" style="width: 100%;height: 100%"></div>
+                    <!--CHECKPOINT_2-->
+
+
+                </tbody>
+            </table>
+        </div>
+
 
             
         </div>
