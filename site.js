@@ -153,21 +153,47 @@ const requestListener = async function (req, res) {
 					let trunk_resultFr = result_French.split(','); 
 					let trunk_resultIn = result_Indian.split(','); 
 					console.log(trunk_resultFr.length);
-					if (trunk_resultFr.length > 150) {
+					const maxElt = 20;
+					var common = [];
+					if (trunk_resultFr.length > maxElt) {
 						result_French = ""+trunk_resultFr[0]
 						result_Indian = ""+trunk_resultIn[0]
-						for (let i=1;i<150;i++) {
+						
+						for (let i=1;i<maxElt;i++) {
   							result_French = result_French + ","+ trunk_resultFr[i];
     						result_Indian = result_Indian + ","+ trunk_resultIn[i];
 						}
+
+						for (let i=1;i<maxElt;i++) {
+
+							if(trunk_resultIn.indexOf(trunk_resultFr[i]) >= 0 && trunk_resultIn.indexOf(trunk_resultFr[i]) < maxElt ){
+								common.push(trunk_resultFr[i]);
+							}
+						}
+
+
+
 					}
+					else {
+						for (let i=1;i<trunk_resultFr.length;i++) {
+
+							if(trunk_resultIn.indexOf(trunk_resultFr[i]) >= 0 && trunk_resultIn.indexOf(trunk_resultFr[i]) < maxElt ){
+								common.push(trunk_resultFr[i]);
+							}
+						}
+
+					}
+
+
+
 
 					const cmd_dataReco = "curl https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getDataBusiness/" + result_French+" --silent"
 					let result_dataReco = await commande_aws(cmd_dataReco);
 					result_dataReco = JSON.parse(result_dataReco);
 
-					console.log(result_dataReco)
-					console.log(result_dataReco.length)
+					console.log(result_dataReco);
+					console.log(result_dataReco.length);
+					console.log(common);
 
 					let result_Marker_html = "";
 					for (let i = 0 ; i < result_dataReco.length ; i++){

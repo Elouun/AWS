@@ -34,8 +34,8 @@
     <script src="https://maps.google.com/maps/api/js?key=AIzaSyAN2UVQyW6NkcA_WPwos4E7cpYuVbDKV9I" type="text/javascript"></script>
         <script async type="text/javascript">
             // On initialise la latitude et la longitude de Paris (centre de la carte)
-            var lat = 48.852969;
-            var lon = 2.349903;
+            var lat = 39.240056;
+            var lon = -100.499687;
             var map = null;
             // Fonction d'initialisation de la carte
             function initMap() {
@@ -44,7 +44,7 @@
                     // Nous plaçons le centre de la carte avec les coordonnées ci-dessus
                     center: new google.maps.LatLng(lat, lon), 
                     // Nous définissons le zoom par défaut
-                    zoom: 11, 
+                    zoom: 9, 
                     // Nous définissons le type de carte (ici carte routière)
                     mapTypeId: google.maps.MapTypeId.ROADMAP, 
                     // Nous activons les options de contrôle de la carte (plan, satellite...)
@@ -125,7 +125,7 @@
                 border: solid black;
                 border-width: 2px;
                 width: 450px;
-                height: 180px;
+                height: 140px;
                 padding-left: 7px">
                 <h2>Commande</h2>
                 <p>Commande <b style="color: #635e4e">%%CMD_1_NAME%%</b> resultat : </p>
