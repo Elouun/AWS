@@ -218,6 +218,9 @@ const requestListener = async function (req, res) {
 
 					}
 
+					indexFile = indexFile.toString().replace( /\/\/CHECKPOINT_1/, marker_all)
+
+
 
 				}
 				const cmd_url = "cd /home/pi/AWS/serveur_aws && chalice url"
