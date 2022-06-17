@@ -47,7 +47,7 @@ function commande_aws(cmd){
 		        console.log(`stderr: ${stderr}`);
 		    }
 
-		    console.log(`stdout: ${stdout}`);
+		    //console.log(`stdout: ${stdout}`);
 		    resolve(stdout);
 		    
 		});
@@ -158,15 +158,13 @@ const requestListener = async function (req, res) {
   							result_French = result_French + ","+ trunk_resultFr[i];
     						result_Indian = result_Indian + ","+ trunk_resultIn[i];
 						}
-						console.log ("toto ici ");
-						console.log(result_French);
 					}
 
 					const cmd_dataReco = "curl https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getDataBusiness/" + result_French+" --silent"
 					let result_dataReco = await commande_aws(cmd_dataReco);
 					result_dataReco = JSON.parse(result_dataReco);
 
-					console.log(cmd_dataReco)
+					console.log(result_dataReco)
 
 					indexFile = indexFile.toString().replace( /\/\/CHECKPOINT_1/, marker)
 
