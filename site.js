@@ -197,7 +197,7 @@ const requestListener = async function (req, res) {
 
 					}
 
-  			  		result_Table_html = result_Table_html + "<tr> <td class='"+colorIndian+"'>"+result_Indian[key]["name"]+"</td> <td class='"+colorFrench+">"+result_French[key]["name"]+"</td> </tr>"
+  			  		result_Table_html = result_Table_html + "<tr> <td class='"+colorIndian+"'>"+result_Indian[key]["name"]+"</td> <td class='"+colorFrench+"'>"+result_French[key]["name"]+"</td> </tr>"
 												
 				
 				})
