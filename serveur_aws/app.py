@@ -465,7 +465,7 @@ def TendMonth(name):
 	
 	# month / day / year
 	
-	d1 = datetime.strptime(name, '%m/%d/%Y %I:%M %p')
+	d1 = datetime.strptime(name, '%m_%d_%Y')
 	
 	day = d1.weekday()
 	month = d1.month
