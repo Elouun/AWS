@@ -473,7 +473,7 @@ def TendMonth(name):
 	print(day)
 	print(month)
 	
-	if month[0]== 'janvier' :
+	if month== 'janvier' :
 		if day=='lundi':
 			result = reqs.janLundi
 		elif day=='mardi':
@@ -488,7 +488,7 @@ def TendMonth(name):
 			result = reqs.janSamedi
 		else :
 			result = reqs.janDimanche
-	elif month[0]== 'fevrier' :
+	elif month== 'fevrier' :
 		if day=='lundi':
 			result = reqs.fevLundi
 		elif day=='mardi':
@@ -503,7 +503,7 @@ def TendMonth(name):
 			result = reqs.fevSamedi
 		else :
 			result = reqs.fevDimanche
-	elif month[0]== 'mars' :
+	elif month== 'mars' :
 		if day=='lundi':
 			result = reqs.marLundi
 		elif day=='mardi':
@@ -518,7 +518,7 @@ def TendMonth(name):
 			result = reqs.marSamedi
 		else :
 			result = reqs.marDimanche
-	elif month[0]== 'avril' :
+	elif month== 'avril' :
 		if day=='lundi':
 			result = reqs.avrLundi
 		elif day=='mardi':
@@ -533,7 +533,7 @@ def TendMonth(name):
 			result = reqs.avrSamedi
 		else :
 			result = reqs.avrDimanche
-	elif month[0]== 'mai' :
+	elif month== 'mai' :
 		if day=='lundi':
 			result = reqs.maiLundi
 		elif day=='mardi':
@@ -548,7 +548,7 @@ def TendMonth(name):
 			result = reqs.maiSamedi
 		else :
 			result = reqs.maiDimanche
-	elif month[0]== 'juin' :
+	elif month== 'juin' :
 		if day=='lundi':
 			result = reqs.juinLundi
 		elif day=='mardi':
@@ -563,7 +563,7 @@ def TendMonth(name):
 			result = reqs.juinSamedi
 		else :
 			result = reqs.juinDimanche
-	elif month[0]== 'juillet' :
+	elif month== 'juillet' :
 		if day=='lundi':
 			result = reqs.juilletLundi
 		elif day=='mardi':
@@ -578,7 +578,7 @@ def TendMonth(name):
 			result = reqs.juilletSamedi
 		else :
 			result = reqs.juilletDimanche
-	elif month[0]== 'aout' :
+	elif month== 'aout' :
 		if day=='lundi':
 			result = reqs.aoutLundi
 		elif day=='mardi':
@@ -593,7 +593,7 @@ def TendMonth(name):
 			result = reqs.aoutSamedi
 		else :
 			result = reqs.aoutDimanche
-	elif month[0]== 'septembre' :
+	elif month== 'septembre' :
 		if day=='lundi':
 			result = reqs.sepLundi
 		elif day=='mardi':
@@ -608,7 +608,7 @@ def TendMonth(name):
 			result = reqs.sepSamedi
 		else :
 			result = reqs.sepDimanche
-	elif month[0]== 'octobre' :
+	elif month== 'octobre' :
 		if day=='lundi':
 			result = reqs.octLundi
 		elif day=='mardi':
@@ -623,7 +623,7 @@ def TendMonth(name):
 			result = reqs.octSamedi
 		else :
 			result = reqs.octDimanche
-	elif month[0]== 'novembre' :
+	elif month== 'novembre' :
 		if day=='lundi':
 			result = reqs.novLundi
 		elif day=='mardi':
