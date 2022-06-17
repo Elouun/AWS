@@ -473,6 +473,13 @@ def TendMonth(name):
 	print(day)
 	print(month)
 	
+	# lundi = 0
+	# mardi = 1
+	# mercredi = 2
+	
+	# janvier = 1
+	# frevier = 2
+	
 	if month== 'janvier' :
 		if day=='lundi':
 			result = reqs.janLundi
