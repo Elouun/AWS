@@ -182,6 +182,7 @@ const requestListener = async function (req, res) {
 
 
 				indexFile = indexFile.toString().replace( /\/\/CHECKPOINT_1/, result_Marker_html)
+				indexFile = indexFile.toString().replace( /<!--CHECKPOINT_2-->/, result_Table_html)
 
 
 	
