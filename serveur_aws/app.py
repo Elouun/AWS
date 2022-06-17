@@ -132,7 +132,7 @@ def getCategoriesOr(param):
 		
 		final = {}
 		
-		size = max(50, len(res))
+		size = min(50, len(res))
 		
 		for i in range(size):#len(res)):
 			
@@ -162,7 +162,7 @@ def getCategoriesOr(param):
 		res = bdd.request(reqfinal, conn)
 
 		count = 0
-		size = max(50, len(res))
+		size = min(50, len(res))
 		for row in res:
 		    if count < size :
 		        print(row)
@@ -267,7 +267,7 @@ def get_categories(param):
 		
 		final = {}
 		
-		size = max(50, len(res))
+		size = min(50, len(res))
 		
 		for i in range(size):
 			
@@ -300,7 +300,7 @@ def get_categories(param):
 		d = {}
 		count = 0
 		
-		size = max(50, len(res))
+		size = min(50, len(res))
 		
 		
 		for row in res:
