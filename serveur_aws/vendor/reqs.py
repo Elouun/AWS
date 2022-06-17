@@ -4,7 +4,7 @@ restaurantNameAlmost = 'select business_id, name, address, city, state, postal_c
 countRestaurantNameAlmost = 'select count(*) from Business where name like "%?key%"'
 
 restaurantID = 'Select * from Business where business_id = "?n"'
-loca = 'select name, latitude, longitude from Business limit 50'
+loca = 'select name, latitude, longitude from Business limit 200'
 
 addReview = 'insert into Reviews(review_id, business_id, user_id, date, text, stars)  values (?r)'
 
