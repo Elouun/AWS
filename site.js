@@ -16,7 +16,7 @@ let indexFile;
 let pageHtml;
 
 
-let marker = " new google.maps.Marker({ position: new google.maps.LatLng($lat, $lng),    map: map,    icon:{  url: 'http://maps.google.com/mapfiles/ms/icons/$color-dot.png'  },  label: {text: ' $text ', color: 'black'} }).addListener('click', () => { new google.maps.InfoWindow({  content: '<div>$content</div>' }).open({ map,   shouldFocus: false,   });  });;" ;
+let marker = " new google.maps.Marker({ position: new google.maps.LatLng($lat, $lng),    map: map,    icon:{  url: 'http://maps.google.com/mapfiles/ms/icons/$color-dot.png'  },  label: {text: ' $text ', color: 'black'} })" ;
 
 
 function onError(err) {
