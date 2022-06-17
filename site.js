@@ -151,10 +151,10 @@ const requestListener = async function (req, res) {
 					let trunk_resultFr = result_French.split(','); 
 					let trunk_resultIn = result_Indian.split(','); 
 
-					if (trunk_resultFr.lenght > 150) {
+					if (trunk_resultFr.lenght > 10) {
 						result_French = ""+trunk_resultFr[0]
 						result_Indian = ""+trunk_resultIn[0]
-						for (let i=1;i<150;i++) {
+						for (let i=1;i<10;i++) {
   							result_French = result_French + ","+ trunk_resultFr[i];
     						result_Indian = result_Indian + ","+ trunk_resultIn[i];
 						}
