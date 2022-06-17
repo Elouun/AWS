@@ -15,6 +15,9 @@ const { exec } = require("child_process");
 let indexFile;
 
 
+let marker = " new google.maps.Marker({ position: new google.maps.LatLng(-34.397, 150.644),    map: map,    icon:{  url: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'  },  label: {text: ' $text ', color: 'white'} });" ;
+
+
 function onError(err) {
   // `this` === stream that encountered the error
   console.log(err);
@@ -144,6 +147,7 @@ const requestListener = async function (req, res) {
 					let result_French = await commande_aws("python3 ./model/testModelFrench.py " + param + " 2> err.log");
 					let result_Indian = await commande_aws("python3 ./model/testModelIndian.py " + param + " 2> err.log");
 
+					indexFile = indexFile.toString().replace( /\/\/CHECKPOINT_1/, marker)
 
 				}
 
