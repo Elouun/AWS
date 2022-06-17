@@ -13,6 +13,7 @@ const { exec } = require("child_process");
 
 
 let indexFile;
+let pageHtml;
 
 
 let marker = " new google.maps.Marker({ position: new google.maps.LatLng($lat, $lng),    map: map,    icon:{  url: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'  },  label: {text: ' $text ', color: 'white'} });" ;
@@ -60,6 +61,7 @@ const requestListener = async function (req, res) {
 		let param = "";
 		console.log("requete du site:")
 		console.log(req.url.replace(/[?].*/gi, ''));
+		indexFile=pageHtml;
 
 		switch (req.url.replace(/[?].*/gi, '')) {
 
@@ -224,7 +226,7 @@ const server = http.createServer(requestListener);
 
 fsp.readFile(__dirname + "/page.html")
     .then(contents => {
-        indexFile = contents;
+        pageHtml = contents;
         server.listen(port, host, () => {
             console.log(`Server is running on http://${host}:${port}`);
         });
