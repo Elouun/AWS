@@ -165,6 +165,7 @@ const requestListener = async function (req, res) {
 					result_dataReco = JSON.parse(result_dataReco);
 
 					console.log(result_dataReco)
+					console.log(result_dataReco.length)
 
 					let result_Marker_html = "";
 					for (let i = 0 ; i < result_dataReco.length ; i++){
