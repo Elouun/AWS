@@ -139,24 +139,18 @@ const requestListener = async function (req, res) {
 				break;	    		
 
 			case "/recommandation_comparaison": 
-				if (req.url.split('reco=')[1] === undefined) {
-					res.writeHead(404);
-					res.end("Missing param ");	
-				}
-				else {
-					param = req.url.split('reco=')[1].replace(/%2C/gi, ',');
-					console.log(param);
-					let result_French = await commande_aws("curl https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getCategoriesOr/French,Indian,usr_50854_french --silent");
-					let result_Indian = await commande_aws("curl https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getCategoriesOr/French,Indian,usr_50854_indian --silent");
+				
+				let result_French = await commande_aws("curl https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getCategoriesOr/French,Indian,usr_50854_french --silent");
+				let result_Indian = await commande_aws("curl https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getCategoriesOr/French,Indian,usr_50854_indian --silent");
 
 
 
-					result_French = JSON.parse(result_French);
-					result_Indian = JSON.parse(result_Indian);
+				result_French = JSON.parse(result_French);
+				result_Indian = JSON.parse(result_Indian);
 
-					console.log(result_French);
+				console.log(result_French);
 
-					console.log(result_Indian);
+				console.log(result_Indian);
 
 					/*
 					let result_Marker_html = "";
@@ -174,7 +168,7 @@ const requestListener = async function (req, res) {
 					indexFile = indexFile.toString().replace( /\/\/CHECKPOINT_1/, result_Marker_html)
 					*/
 
-				}
+				
 
 			case "/":
 				const cmd_url = "cd /home/pi/AWS/serveur_aws && chalice url"
