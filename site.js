@@ -174,6 +174,7 @@ const requestListener = async function (req, res) {
 												   .replace(/$lat/,result_dataReco[i][2])
 												   .replace(/$lng/,result_dataReco[i][3])
 					}
+					console.log(result_Marker_html);
 
 
 					indexFile = indexFile.toString().replace( /\/\/CHECKPOINT_1/, result_Marker_html)
