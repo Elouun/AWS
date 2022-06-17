@@ -180,7 +180,7 @@ const requestListener = async function (req, res) {
 
 					if (result_Indian[key]["categories"].includes("Indian")){
 						if (result_Indian[key]["categories"].includes("French")){
-							color="green"
+							colorIndian="green"
 						}
 						else {
 							colorIndian="yellow"
@@ -189,10 +189,10 @@ const requestListener = async function (req, res) {
 					}
 					if (result_French[key]["categories"].includes("French")){
 						if (result_French[key]["categories"].includes("Indian")){
-							color="green"
+							colorFrench="green"
 						}
 						else {
-							colorIndian="red"
+							colorFrench="red"
 						}
 
 					}
