@@ -480,183 +480,183 @@ def TendMonth(name):
 	# janvier = 1
 	# frevier = 2
 	
-	if month== 'janvier' :
-		if day=='lundi':
+	if month== 1 :
+		if day==0:
 			result = reqs.janLundi
-		elif day=='mardi':
+		elif day==1:
 			result = reqs.janMardi
-		elif day=='mercredi':
+		elif day==2:
 			result = reqs.janMercredi
-		elif day=='jeudi':
+		elif day==3:
 			result = reqs.janJeudi
-		elif day=='vendredi':
+		elif day==4:
 			result = reqs.janVendredi
-		elif day=='samedi':
+		elif day==5:
 			result = reqs.janSamedi
 		else :
 			result = reqs.janDimanche
-	elif month== 'fevrier' :
-		if day=='lundi':
+	elif month== 2 :
+		if day==0:
 			result = reqs.fevLundi
-		elif day=='mardi':
+		elif day==1:
 			result = reqs.fevMardi
-		elif day=='mercredi':
+		elif day==2:
 			result = reqs.fevMercredi
-		elif day=='jeudi':
+		elif day==3:
 			result = reqs.fevJeudi
-		elif day=='vendredi':
+		elif day==4:
 			result = reqs.fevVendredi
-		elif day=='samedi':
+		elif day==5:
 			result = reqs.fevSamedi
 		else :
 			result = reqs.fevDimanche
-	elif month== 'mars' :
-		if day=='lundi':
+	elif month== 3 :
+		if day==0:
 			result = reqs.marLundi
-		elif day=='mardi':
+		elif day==1:
 			result = reqs.marMardi
-		elif day=='mercredi':
+		elif day==2:
 			result = reqs.marMercredi
-		elif day=='jeudi':
+		elif day==3:
 			result = reqs.marJeudi
-		elif day=='vendredi':
+		elif day==4:
 			result = reqs.marVendredi
-		elif day=='samedi':
+		elif day==5:
 			result = reqs.marSamedi
 		else :
 			result = reqs.marDimanche
-	elif month== 'avril' :
-		if day=='lundi':
+	elif month==4 :
+		if day==0:
 			result = reqs.avrLundi
-		elif day=='mardi':
+		elif day==1:
 			result = reqs.avrMardi
-		elif day=='mercredi':
+		elif day==2:
 			result = reqs.avrMercredi
-		elif day=='jeudi':
+		elif day==3:
 			result = reqs.avrJeudi
-		elif day=='vendredi':
+		elif day==4:
 			result = reqs.avrVendredi
-		elif day=='samedi':
+		elif day==5:
 			result = reqs.avrSamedi
 		else :
 			result = reqs.avrDimanche
-	elif month== 'mai' :
-		if day=='lundi':
+	elif month==5:
+		if day==0:
 			result = reqs.maiLundi
-		elif day=='mardi':
+		elif day==1:
 			result = reqs.maiMardi
-		elif day=='mercredi':
+		elif day==2:
 			result = reqs.maiMercredi
-		elif day=='jeudi':
+		elif day==3:
 			result = reqs.maiJeudi
-		elif day=='vendredi':
+		elif day==4:
 			result = reqs.maiVendredi
-		elif day=='samedi':
+		elif day==5:
 			result = reqs.maiSamedi
 		else :
 			result = reqs.maiDimanche
-	elif month== 'juin' :
-		if day=='lundi':
+	elif month==6 :
+		if day==0:
 			result = reqs.juinLundi
-		elif day=='mardi':
+		elif day==1:
 			result = reqs.juinMardi
-		elif day=='mercredi':
+		elif day==2:
 			result = reqs.juinMercredi
-		elif day=='jeudi':
+		elif day==3:
 			result = reqs.juinJeudi
-		elif day=='vendredi':
+		elif day==4:
 			result = reqs.juinVendredi
-		elif day=='samedi':
+		elif day==5:
 			result = reqs.juinSamedi
 		else :
 			result = reqs.juinDimanche
-	elif month== 'juillet' :
-		if day=='lundi':
+	elif month==7 :
+		if day==1:
 			result = reqs.juilletLundi
-		elif day=='mardi':
+		elif day==2:
 			result = reqs.juilletMardi
-		elif day=='mercredi':
+		elif day==3:
 			result = reqs.juilletMercredi
-		elif day=='jeudi':
+		elif day==4:
 			result = reqs.juilletJeudi
-		elif day=='vendredi':
+		elif day==5:
 			result = reqs.juilletVendredi
-		elif day=='samedi':
+		elif day==6:
 			result = reqs.juilletSamedi
 		else :
 			result = reqs.juilletDimanche
-	elif month== 'aout' :
-		if day=='lundi':
+	elif month== 8 :
+		if day==1:
 			result = reqs.aoutLundi
-		elif day=='mardi':
+		elif day==2:
 			result = reqs.aoutMardi
-		elif day=='mercredi':
+		elif day==3:
 			result = reqs.aoutMercredi
-		elif day=='jeudi':
+		elif day==4:
 			result = reqs.aoutJeudi
-		elif day=='vendredi':
+		elif day==5:
 			result = reqs.aoutVendredi
-		elif day=='samedi':
+		elif day==6:
 			result = reqs.aoutSamedi
 		else :
 			result = reqs.aoutDimanche
-	elif month== 'septembre' :
-		if day=='lundi':
+	elif month==9 :
+		if day==1:
 			result = reqs.sepLundi
-		elif day=='mardi':
+		elif day==2:
 			result = reqs.sepMardi
-		elif day=='mercredi':
+		elif day==3:
 			result = reqs.sepMercredi
-		elif day=='jeudi':
+		elif day==4:
 			result = reqs.sepJeudi
-		elif day=='vendredi':
+		elif day==5:
 			result = reqs.sepVendredi
-		elif day=='samedi':
+		elif day==6:
 			result = reqs.sepSamedi
 		else :
 			result = reqs.sepDimanche
-	elif month== 'octobre' :
-		if day=='lundi':
+	elif month==10 :
+		if day==1:
 			result = reqs.octLundi
-		elif day=='mardi':
+		elif day==2:
 			result = reqs.octMardi
-		elif day=='mercredi':
+		elif day==3:
 			result = reqs.octMercredi
-		elif day=='jeudi':
+		elif day==4:
 			result = reqs.octJeudi
-		elif day=='vendredi':
+		elif day==5:
 			result = reqs.octVendredi
-		elif day=='samedi':
+		elif day==6:
 			result = reqs.octSamedi
 		else :
 			result = reqs.octDimanche
-	elif month== 'novembre' :
-		if day=='lundi':
+	elif month==11 :
+		if day==1:
 			result = reqs.novLundi
-		elif day=='mardi':
+		elif day==2:
 			result = reqs.novMardi
-		elif day=='mercredi':
+		elif day==3:
 			result = reqs.novMercredi
-		elif day=='jeudi':
+		elif day==4:
 			result = reqs.novJeudi
-		elif day=='vendredi':
+		elif day==5:
 			result = reqs.novVendredi
-		elif day=='samedi':
+		elif day==6:
 			result = reqs.novSamedi
 		else :
 			result = reqs.novDimanche
 	else :
-		if day=='lundi':
+		if day==1:
 			result = reqs.decLundi
-		elif day=='mardi':
+		elif day==2:
 			result = reqs.decMardi
-		elif day=='mercredi':
+		elif day==3:
 			result = reqs.decMercredi
-		elif day=='jeudi':
+		elif day==4:
 			result = reqs.decJeudi
-		elif day=='vendredi':
+		elif day==5:
 			result = reqs.decvendredi
-		elif day=='samedi':
+		elif day==6:
 			result = reqs.decSamedi
 		else :
 			result = reqs.decDimanche
