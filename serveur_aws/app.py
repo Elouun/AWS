@@ -460,9 +460,19 @@ def get_user():
 
 @app.route('/TendMonth/{name}')
 def TendMonth(name):
-
-	month = name.split(',')
-	day = month[1]
+	
+	from datetime import datetime
+	
+	# month / day / year
+	
+	d1 = datetime.strptime(name, '%m/%d/%Y %I:%M %p')
+	
+	day = d1.weekday()
+	month = d1.month
+	
+	print(day)
+	print(month)
+	
 	if month[0]== 'janvier' :
 		if day=='lundi':
 			result = reqs.janLundi
