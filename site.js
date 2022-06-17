@@ -15,7 +15,7 @@ const { exec } = require("child_process");
 let indexFile;
 
 
-let marker = " new google.maps.Marker({ position: new google.maps.LatLng(-34.397, 150.644),    map: map,    icon:{  url: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'  },  label: {text: ' $text ', color: 'white'} });" ;
+let marker = " new google.maps.Marker({ position: new google.maps.LatLng($lat, $lng),    map: map,    icon:{  url: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'  },  label: {text: ' $text ', color: 'white'} });" ;
 
 
 function onError(err) {
@@ -165,11 +165,18 @@ const requestListener = async function (req, res) {
 					result_dataReco = JSON.parse(result_dataReco);
 
 					console.log(result_dataReco)
-					console.log(result_dataReco[1])
-					console.log(result_dataReco[1][0])
+
+					let result_Marker_html = "";
+					for (let i = 0 ; i < result_dataReco.length ; i++){
 
 
-					indexFile = indexFile.toString().replace( /\/\/CHECKPOINT_1/, marker)
+						result_Marker_html = result_Marker_html + "   " + marker.replace(/$text/,result_dataReco[i][6])
+												   .replace(/$lat/,result_dataReco[i][2])
+												   .replace(/$lng/,result_dataReco[i][3])
+					}
+
+
+					indexFile = indexFile.toString().replace( /\/\/CHECKPOINT_1/, result_Marker_html)
 
 
 				}
