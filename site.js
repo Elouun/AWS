@@ -159,7 +159,7 @@ const requestListener = async function (req, res) {
     						result_Indian = result_Indian + ","+ trunk_resultIn[i];
 						}
 						console.log ("toto ici ");
-						console.log(result_French):
+						console.log(result_French);
 					}
 
 					const cmd_dataReco = "curl https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getDataBusiness/" + result_French+" --silent"
