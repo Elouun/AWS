@@ -165,6 +165,9 @@ const requestListener = async function (req, res) {
 					result_dataReco = JSON.parse(result_dataReco);
 
 					console.log(result_dataReco)
+					console.log(result_dataReco[1])
+					console.log(result_dataReco[1][0])
+
 
 					indexFile = indexFile.toString().replace( /\/\/CHECKPOINT_1/, marker)
 
