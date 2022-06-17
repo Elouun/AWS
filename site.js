@@ -73,7 +73,6 @@ const requestListener = async function (req, res) {
 				}
 				else {
 					param = req.url.split('resto=')[1].replace(/\+/gi, ' ');
-					console.log(param);
 					request_aws("https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getRestaurant/" +param ,res)
 				}
 			    break;
@@ -85,7 +84,6 @@ const requestListener = async function (req, res) {
 				}
 				else {
 					param = req.url.split('reco=')[1].replace(/%2C/gi, ',');
-					console.log(param);
 					let result_reco = await commande_aws("python3 ./model/testModelFrench.py " + param + " 2> err.log");
 
 
@@ -104,7 +102,6 @@ const requestListener = async function (req, res) {
 				}
 				else {
 					param = req.url.split('reco=')[1].replace(/%2C/gi, ',');
-					console.log(param);
 					let result_reco_indian = await commande_aws("python3 ./model/testModelIndian.py " + param + " 2> err.log");
 				
 				
@@ -148,9 +145,7 @@ const requestListener = async function (req, res) {
 				result_French = JSON.parse(result_French);
 				result_Indian = JSON.parse(result_Indian);
 
-				console.log(result_French);
 
-				console.log(result_Indian);
 				let result_Marker_html = "";
 				let result_Table_html ="<table>  <thead> <tr>  <th colspan='2'>Tableau de  comparaison</th>  </tr>  </thead><tbody>  <tr>  <td>Indian</td>   <td>French</td>  </tr>";
 
@@ -161,7 +156,7 @@ const requestListener = async function (req, res) {
 											   	.replace(/\$lat/,result_French[key]['latitude'])
 											   	.replace(/\$lng/,result_French[key]['longitude']);
 				
-				})
+				});
 
 				Object.keys(result_Indian).forEach(function(key) {
   			  		result_Marker_html = result_Marker_html + "   " + marker
@@ -171,7 +166,7 @@ const requestListener = async function (req, res) {
 											   	.replace(/\$lat/,result_Indian[key]['latitude'])
 											   	.replace(/\$lng/,result_Indian[key]['longitude']);
 				
-				})
+				});
 
 
 				Object.keys(result_Indian).forEach(function(key) {
