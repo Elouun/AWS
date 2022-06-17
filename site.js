@@ -162,7 +162,7 @@ const requestListener = async function (req, res) {
 
 					const cmd_dataReco = "curl https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getDataBusiness/" + result_French+" --silent"
 					let result_dataReco = await commande_aws(cmd_dataReco);
-					cmd_dataReco = JSON.parse(cmd_dataReco);
+					result_dataReco = JSON.parse(result_dataReco);
 
 					console.log(cmd_dataReco)
 
