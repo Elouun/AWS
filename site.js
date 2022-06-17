@@ -171,9 +171,9 @@ const requestListener = async function (req, res) {
 					for (let i = 0 ; i < result_dataReco.length ; i++){
 
 
-						result_Marker_html = result_Marker_html + "   " + marker.replace(/$text/,result_dataReco[i][6])
-												   .replace(/$lat/,result_dataReco[i][2])
-												   .replace(/$lng/,result_dataReco[i][3])
+						result_Marker_html = result_Marker_html + "   " + marker.replace(/\$text/,result_dataReco[i][6])
+												   .replace(/\$lat/,result_dataReco[i][2])
+												   .replace(/\$lng/,result_dataReco[i][3])
 					}
 					console.log(result_Marker_html);
 
