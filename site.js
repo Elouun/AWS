@@ -147,7 +147,14 @@ const requestListener = async function (req, res) {
 					let result_French = await commande_aws("python3 ./model/testModelFrench.py " + param + " 2> err.log");
 					let result_Indian = await commande_aws("python3 ./model/testModelIndian.py " + param + " 2> err.log");
 
+					const cmd_dataReco = "curl https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getDataBusiness/" + result_French+" --silent"
+					let result_dataReco = await commande_aws(cmd_dataReco);
+					cmd_dataReco = JSON.parse(cmd_dataReco);
+
+					console.log(cmd_dataReco)
+
 					indexFile = indexFile.toString().replace( /\/\/CHECKPOINT_1/, marker)
+
 
 				}
 
