@@ -10,7 +10,7 @@ addReview = 'insert into Reviews(review_id, business_id, user_id, date, text, st
 user = 'select * from Users where name = "?n"'
 userID = 'Select * from Users where user_id = "?n"'
 
-databusiness = ' SELECT * FROM Business WHERE id_new IN (?n)' 
+databusiness = ' SELECT name as name_resto , city as city_resto , latitude as lat , longitude as lng , Indian as indian , French as french , id_new as id, stars as stars FROM Business WHERE id_new IN (?n)' 
 
 review_by_user = 'SELECT text,stars FROM Users u,Reviews r where u.user_id = r.user_id and name="?n" limit 5'
 review_by_user_id = 'SELECT text,stars FROM Users u,Reviews r where u.user_id = r.user_id and user_id="?n" limit 5'
