@@ -163,7 +163,6 @@ const requestListener = async function (req, res) {
 												.replace(/\$text/,result_Indian[key]['id_new'])
 												.replace(/\$color/,'blue')
 											   	.replace(/\$lat/,result_Indian[key]['latitude'])
-											   	.replace(/\$lat/,result_Indian[key]['latitude'])
 											   	.replace(/\$lng/,result_Indian[key]['longitude']);
 				
 				});
@@ -205,6 +204,21 @@ const requestListener = async function (req, res) {
 	
 
 			case "/":
+				if (req.url.replace(/[?].*/gi, '') != "/recommandation_comparaison" ) {
+					let result_all = await commande_aws("curl https://myxzcnelvk.execute-api.eu-west-3.amazonaws.com/api/getLoca/ --silent");
+					result_all = JSON.parse(result_all);
+					marker_all = "";
+					for (let i=0 ; i < result_all.length ; i++){
+						marker_all = marker_all + "   " + marker
+												.replace(/\$text/,result_all[i][0])
+												.replace(/\$color/,'red')
+											   	.replace(/\$lat/,result_all[i][1])
+											   	.replace(/\$lng/,result_all[i][2]);
+
+					}
+
+
+				}
 				const cmd_url = "cd /home/pi/AWS/serveur_aws && chalice url"
 				let result_url_cmd = await commande_aws(cmd_url);
 				result_url_cmd = result_url_cmd.replace(/\n/ig,"<br>");
