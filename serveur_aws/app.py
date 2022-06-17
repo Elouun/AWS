@@ -24,6 +24,13 @@ def default():
 def save_data():
     return 1
 
+@app.route('/getLoca')
+def getLoca():
+	req = reqs.loca
+	res = bdd.request(req, conn)
+	
+	return res
+
 @app.route('/getDataBusiness/{param}')
 def getDataBusiness(param):
 	req = reqs.databusiness.replace("?n", param)
