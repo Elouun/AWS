@@ -175,7 +175,29 @@ const requestListener = async function (req, res) {
 
 
 				Object.keys(result_Indian).forEach(function(key) {
-  			  		result_Table_html = result_Table_html + "<tr> <td>"+result_Indian[key]["name"]+"</td> <td>"+result_French[key]["name"]+"</td> </tr>"
+					colorFrench ="neutre"
+					colorIndian ="neutre"
+
+					if (result_Indian[key]["categories"].includes("Indian")){
+						if (result_Indian[key]["categories"].includes("French")){
+							color="green"
+						}
+						else {
+							colorIndian="yellow"
+						}
+
+					}
+					if (result_French[key]["categories"].includes("French")){
+						if (result_French[key]["categories"].includes("Indian")){
+							color="green"
+						}
+						else {
+							colorIndian="red"
+						}
+
+					}
+
+  			  		result_Table_html = result_Table_html + "<tr> <td class='"+colorIndian+"'>"+result_Indian[key]["name"]+"</td> <td class='"+colorFrench+">"+result_French[key]["name"]+"</td> </tr>"
 												
 				
 				})
