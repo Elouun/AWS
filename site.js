@@ -16,7 +16,7 @@ let indexFile;
 let pageHtml;
 
 
-let marker = " new google.maps.Marker({ position: new google.maps.LatLng($lat, $lng),    map: map,    icon:{  url: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'  },  label: {text: ' $text ', color: 'white'} });" ;
+let marker = " new google.maps.Marker({ position: new google.maps.LatLng($lat, $lng),    map: map,    icon:{  url: 'http://maps.google.com/mapfiles/ms/icons/$color-dot.png'  },  label: {text: ' $text ', color: 'white'} });" ;
 
 
 function onError(err) {
@@ -151,28 +151,43 @@ const requestListener = async function (req, res) {
 				console.log(result_French);
 
 				console.log(result_Indian);
+				let result_Marker_html = "";
 
+				Object.keys(result_French).forEach(function(key) {
+  					console.log('Key : ' + key + ', Value : ' + result_French[key]);
+  					result_Marker_html = result_Marker_html + "   " + marker
+												.replace(/\$text/,result_French[key]['id_new'])
+												.replace(/\$color/,'green')
+											   	.replace(/\$lat/,result_French[key]['latitude'])
+											   	.replace(/\$lng/,result_French[key]['longitude']);
+				
+				})
 
 				Object.keys(result_Indian).forEach(function(key) {
-  					console.log('Key : ' + key + ', Value : ' + result_Indian[key])
+  					console.log('Key : ' + key + ', Value : ' + result_Indian[key]);
+  			  		result_Marker_html = result_Marker_html + "   " + marker
+												.replace(/\$text/,result_Indian[key]['id_new'])
+												.replace(/\$color/,'blue')
+											   	.replace(/\$lat/,result_Indian[key]['latitude'])
+											   	.replace(/\$lat/,result_Indian[key]['latitude'])
+											   	.replace(/\$lng/,result_Indian[key]['longitude']);
+				
 				})
+
+				indexFile = indexFile.toString().replace( /\/\/CHECKPOINT_1/, result_Marker_html)
 
 
 				/*
 				
-				let result_Marker_html = "";
+				
 				for (let i = 0 ; i < result_dataReco.length ; i++){
 
 
-					result_Marker_html = result_Marker_html + "   " + marker
-												.replace(/\$text/,result_dataReco[i][6])
-											   	.replace(/\$lat/,result_dataReco[i][2])
-											   	.replace(/\$lng/,result_dataReco[i][3])
+					
 				}
 				console.log(result_Marker_html);
 
 
-				indexFile = indexFile.toString().replace( /\/\/CHECKPOINT_1/, result_Marker_html)
 				
 				*/
 				
