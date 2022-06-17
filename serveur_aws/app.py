@@ -242,9 +242,10 @@ def get_categories(param):
 
 		count = 0
 		for row in res:
-		    d[count] = {"business_id":row[0],"name":row[1],"address":row[2],"city":row[3], "state":row[4],"postal_code":row[5],"latitude":row[6],"longitude":row[7],"stars":row[8] ,"image_id":row[9], "id_new":row[10], "categories":row[11], "price":row[12]}
-		    ids[count] = str(row[10])
-		    count += 1
+		    if count < 500 :	
+		        d[count] = {"business_id":row[0],"name":row[1],"address":row[2],"city":row[3], "state":row[4],"postal_code":row[5],"latitude":row[6],"longitude":row[7],"stars":row[8] ,"image_id":row[9], "id_new":row[10], "categories":row[11], "price":row[12]}
+		        ids[count] = str(row[10])
+		        count += 1
 		
 		#print(ids.values())
 		
